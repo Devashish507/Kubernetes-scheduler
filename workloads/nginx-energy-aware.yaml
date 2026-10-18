@@ -1,0 +1,53 @@
+---
+# =============================================================================
+# workloads/nginx-energy-aware.yaml
+# =============================================================================
+# Latency-sensitive workload (nginx) — scheduled by energy-aware-scheduler.
+#
+# This deployment uses schedulerName: energy-aware-scheduler so it is
+# handled by the custom scheduler. The EnergyAware plugin will score the
+# worker nodes and prefer energy-worker (efficient).
+#
+# Labels:
+#   energy.project/workload-type: latency-sensitive
+#   (Used for experiment tracking and Prometheus queries)
+#
+# To switch to the default scheduler, change schedulerName to:
+#   schedulerName: default-scheduler
+# (or remove the field entirely — default-scheduler is used when absent)
+# =============================================================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-energy-aware
+  namespace: default
+  labels:
+    app: nginx-energy-aware
+    energy.project/workload-type: latency-sensitive
+    energy.project/scheduler: energy-aware-scheduler
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-energy-aware
+  template:
+    metadata:
+      labels:
+        app: nginx-energy-aware
+        energy.project/workload-type: latency-sensitive
+        energy.project/scheduler: energy-aware-scheduler
+    spec:
+      # Explicitly assign this workload to the custom energy-aware scheduler.
+      schedulerName: energy-aware-scheduler
+      containers:
+        - name: nginx
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 50m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi

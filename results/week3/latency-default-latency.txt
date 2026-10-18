@@ -1,0 +1,1 @@
+Latency (deploy to ready/complete): 50 seconds

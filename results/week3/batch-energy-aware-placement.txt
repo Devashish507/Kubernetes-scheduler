@@ -1,0 +1,2 @@
+NAME                        READY   STATUS      RESTARTS   AGE   IP            NODE            NOMINATED NODE   READINESS GATES
+stress-energy-aware-wswzk   0/1     Completed   0          67s   10.244.3.10   energy-worker   <none>           <none>

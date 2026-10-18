@@ -1,0 +1,3 @@
+NAME                                  READY   STATUS    RESTARTS   AGE   IP           NODE             NOMINATED NODE   READINESS GATES
+nginx-energy-aware-59b49947b5-5vzf2   1/1     Running   0          64s   10.244.3.8   energy-worker    <none>           <none>
+nginx-energy-aware-59b49947b5-b2zvk   1/1     Running   0          63s   10.244.2.5   energy-worker2   <none>           <none>

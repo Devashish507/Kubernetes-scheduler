@@ -1,0 +1,65 @@
+---
+# =============================================================================
+# scheduler/manifests/configmap.yaml
+# =============================================================================
+# KubeSchedulerConfiguration for energy-aware-scheduler.
+#
+# Week 4: EnergyAware now accepts plugin args via pluginConfig.
+# Weights are configurable without rebuilding the image.
+#
+# Scoring formula (Section 5.6 of the project paper):
+#   Score_i = wR*R_i + wL*L_i - wP*P_i
+#
+# Weight profiles:
+#   - latency-sensitive pods: wL is dominant (latency matters most)
+#   - batch pods:             wP is dominant (energy matters most)
+#
+# To tune weights, edit args below and run:
+#   kubectl apply -f scheduler/manifests/configmap.yaml
+#   kubectl rollout restart deployment/energy-aware-scheduler -n kube-system
+# =============================================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: energy-aware-scheduler-config
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/name: energy-aware-scheduler
+    app.kubernetes.io/component: scheduler
+data:
+  scheduler-config.yaml: |
+    apiVersion: kubescheduler.config.k8s.io/v1
+    kind: KubeSchedulerConfiguration
+
+    leaderElection:
+      leaderElect: true
+      resourceName: energy-aware-scheduler
+      resourceNamespace: kube-system
+
+    profiles:
+      - schedulerName: energy-aware-scheduler
+        plugins:
+          score:
+            enabled:
+              - name: EnergyAware
+        pluginConfig:
+          - name: EnergyAware
+            args:
+              # Hard utilization cap. Nodes at or above this % are excluded.
+              utilizationThreshold: 80
+
+              # Override Prometheus URL (leave empty to use the in-cluster default).
+              prometheusURL: ""
+
+              # Weight profile for latency-sensitive pods
+              # (annotation: energy.project/workload-type=latency-sensitive)
+              latencySensitiveWeights:
+                wR: 0.3   # resource headroom
+                wL: 0.6   # latency / idleness  ← dominant
+                wP: 0.1   # power delta
+
+              # Weight profile for batch pods (default when annotation absent)
+              batchWeights:
+                wR: 0.3   # resource headroom
+                wL: 0.1   # latency / idleness
+                wP: 0.6   # power delta            ← dominant

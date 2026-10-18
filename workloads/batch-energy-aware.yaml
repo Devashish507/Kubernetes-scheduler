@@ -1,0 +1,55 @@
+---
+# =============================================================================
+# workloads/batch-energy-aware.yaml
+# =============================================================================
+# Batch workload (stress-ng) — scheduled by energy-aware-scheduler.
+#
+# Uses stress-ng to generate a brief, bounded CPU load.
+# Parameters are intentionally conservative for a local KIND environment:
+#   --cpu 1       : 1 CPU stressor only
+#   --cpu-load 20 : 20% target CPU load (not 100%)
+#   --timeout 60  : stops after 60 seconds automatically
+#
+# This does NOT run continuously; KIND nodes share your host machine's CPU.
+# Do not increase --timeout or --cpu-load significantly.
+#
+# labels:
+#   energy.project/workload-type: batch
+# =============================================================================
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: stress-energy-aware
+  namespace: default
+  labels:
+    energy.project/workload-type: batch
+    energy.project/scheduler: energy-aware-scheduler
+spec:
+  # Do not retry on failure — the job is for a single timed run.
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        energy.project/workload-type: batch
+        energy.project/scheduler: energy-aware-scheduler
+    spec:
+      schedulerName: energy-aware-scheduler
+      restartPolicy: Never
+      containers:
+        - name: stress
+          # stress-ng is available in the official Docker Hub image.
+          image: alexeiled/stress-ng:latest
+          args:
+            - "--cpu"
+            - "1"
+            - "--cpu-load"
+            - "20"
+            - "--timeout"
+            - "60"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 32Mi
+            limits:
+              cpu: 250m
+              memory: 64Mi

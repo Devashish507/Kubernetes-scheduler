@@ -1,0 +1,43 @@
+---
+# =============================================================================
+# workloads/batch-default.yaml
+# =============================================================================
+# Batch workload (stress-ng) — scheduled by the DEFAULT scheduler.
+# Identical parameters to batch-energy-aware.yaml.
+# Deploy alongside batch-energy-aware.yaml to prove both schedulers work.
+# =============================================================================
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: stress-default
+  namespace: default
+  labels:
+    energy.project/workload-type: batch
+    energy.project/scheduler: default-scheduler
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        energy.project/workload-type: batch
+        energy.project/scheduler: default-scheduler
+    spec:
+      schedulerName: default-scheduler
+      restartPolicy: Never
+      containers:
+        - name: stress
+          image: alexeiled/stress-ng:latest
+          args:
+            - "--cpu"
+            - "1"
+            - "--cpu-load"
+            - "20"
+            - "--timeout"
+            - "60"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 32Mi
+            limits:
+              cpu: 250m
+              memory: 64Mi

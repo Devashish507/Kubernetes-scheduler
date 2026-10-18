@@ -1,0 +1,26 @@
+---
+# =============================================================================
+# monitoring/dashboards/dashboard-configmap.yaml
+# =============================================================================
+# Provisions the scheduler-comparison Grafana dashboard automatically.
+#
+# kube-prometheus-stack's Grafana sidecar watches for ConfigMaps with
+# label  grafana_dashboard=1  in any namespace and mounts them as dashboards.
+# This ConfigMap is deployed once; after that, adding/updating dashboards only
+# requires re-applying this file — no Helm upgrade needed.
+#
+# Reference:
+#   https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack#grafana
+#   (section: "Configuring Grafana Dashboards via ConfigMaps")
+# =============================================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: energy-scheduler-dashboard
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+  annotations:
+    grafana_folder: "Energy Scheduler"
+data:
+  scheduler-comparison.json: |

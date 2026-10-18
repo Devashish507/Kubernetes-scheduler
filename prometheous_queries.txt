@@ -1,0 +1,49 @@
+✅ Start Here — Verify Everything Is Working
+promql
+up
+Returns 1 for every scrape target that is alive. You should see many series — node exporter, kube-state-metrics, API server, etc.
+
+🖥️ Node-Level Queries (Most Relevant for Your Project)
+CPU usage per node (%)
+promql
+100 - (avg by(node) (rate(node_cpu_seconds_total{mode="idle"}[2m])) * 100)
+Memory used per node (bytes)
+promql
+node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes
+Memory used per node (%)
+promql
+(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100
+Which physical node each Kubernetes node maps to
+promql
+kube_node_info
+📦 Pod Scheduling Queries (Core to Your Project)
+Which node each running pod is scheduled on
+promql
+kube_pod_info
+Count of pods per node
+promql
+count by(node) (kube_pod_info{namespace!="kube-system"})
+Pod status (running, pending, failed)
+promql
+kube_pod_status_phase
+Pods that are NOT running
+promql
+kube_pod_status_phase{phase!="Running"} == 1
+⚡ Energy-Relevant Queries (Using Your Node Labels)
+Your nodes have labels like energy.project/power-profile=efficient. You can surface them via:
+
+promql
+kube_node_labels{label_energy_project_power_profile=~".+"}
+Kubernetes replaces / and - with _ in label selectors within kube-state-metrics.
+
+🔬 Scheduling Latency (Useful for Comparison Later)
+Time from pod creation to pod running (scheduling latency proxy)
+promql
+kube_pod_start_time - kube_pod_created
+💡 Quick Sanity Checks
+What to check	Query
+All scrape targets alive	up
+Node CPU %	100 - (avg by(node)(rate(node_cpu_seconds_total{mode="idle"}[2m]))*100)
+Node memory %	(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100
+Pods per node	count by(node)(kube_pod_info)
+Node labels visible	kube_node_labels

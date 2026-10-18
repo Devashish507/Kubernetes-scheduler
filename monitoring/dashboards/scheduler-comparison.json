@@ -1,0 +1,257 @@
+{
+  "__inputs": [],
+  "__requires": [],
+  "annotations": { "list": [] },
+  "description": "Energy-Aware Scheduler — comparison dashboard for B.Tech final-year project",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "id": 1,
+      "title": "Node CPU Utilization",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "lineWidth": 2, "fillOpacity": 10 },
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 60 },
+              { "color": "red", "value": 80 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 1 },
+      "id": 2,
+      "options": {
+        "legend": { "calcs": ["mean", "max", "last"], "displayMode": "table", "placement": "right" },
+        "tooltip": { "mode": "multi" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "100 - (avg by (node) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)",
+          "legendFormat": "{{ node }}",
+          "refId": "A"
+        }
+      ],
+      "title": "Per-Node CPU Utilization (%)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 9 },
+      "id": 3,
+      "title": "Estimated Node Power (Simulated Linear Model)",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "description": "Estimated power using P(u) = P_idle + (P_max - P_idle) * u.\nP_idle and P_max come from node labels energy.project/p-idle and energy.project/p-max.\nValues: efficient=20W/60W, medium=40W/120W, power-hungry=80W/200W.",
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "lineWidth": 2, "fillOpacity": 10 },
+          "unit": "watt",
+          "min": 0
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 10 },
+      "id": 4,
+      "options": {
+        "legend": { "calcs": ["mean", "max", "last"], "displayMode": "table", "placement": "right" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "(\n  # energy-worker: P_idle=20, P_max=60\n  20 + (60 - 20) * (\n    (100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker\"}[2m])) * 100)) / 100\n  )\n) or vector(0)",
+          "legendFormat": "energy-worker (efficient, 20–60W)",
+          "refId": "A"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "(\n  # energy-worker2: P_idle=40, P_max=120\n  40 + (120 - 40) * (\n    (100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker2\"}[2m])) * 100)) / 100\n  )\n) or vector(0)",
+          "legendFormat": "energy-worker2 (medium, 40–120W)",
+          "refId": "B"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "(\n  # energy-worker3: P_idle=80, P_max=200\n  80 + (200 - 80) * (\n    (100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker3\"}[2m])) * 100)) / 100\n  )\n) or vector(0)",
+          "legendFormat": "energy-worker3 (power-hungry, 80–200W)",
+          "refId": "C"
+        }
+      ],
+      "title": "Estimated Node Power (W) — Simulated",
+      "type": "timeseries"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "description": "Sum of estimated power across all three worker nodes.",
+      "fieldConfig": {
+        "defaults": { "unit": "watt", "color": { "mode": "thresholds" },
+          "thresholds": { "mode": "absolute", "steps": [
+            { "color": "green", "value": null },
+            { "color": "yellow", "value": 200 },
+            { "color": "red", "value": 300 }
+          ]}
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 8, "x": 0, "y": 18 },
+      "id": 5,
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "orientation": "horizontal", "textMode": "auto" },
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "(\n  20 + 40 * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker\"}[2m])) * 100)) / 100)\n) + (\n  40 + 80 * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker2\"}[2m])) * 100)) / 100)\n) + (\n  80 + 120 * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker3\"}[2m])) * 100)) / 100)\n)",
+          "legendFormat": "Total cluster power",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Estimated Cluster Power (W)",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 22 },
+      "id": 6,
+      "title": "Pod Placement by Node",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "description": "Number of running pods per node (all namespaces, excluding system).\nThe energy-aware scheduler consolidates onto energy-worker;\nthe default scheduler spreads evenly.",
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "palette-classic" } },
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 23 },
+      "id": 7,
+      "options": { "pieType": "donut", "legend": { "displayMode": "table", "placement": "right" } },
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "count by (node) (kube_pod_info{namespace!~\"kube-system|monitoring\"})",
+          "legendFormat": "{{ node }}",
+          "refId": "A"
+        }
+      ],
+      "title": "Pods per Node (non-system namespaces)",
+      "type": "piechart"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "description": "Table of pods in the default namespace with their assigned nodes.\nUse this to compare placement between schedulers.",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": [
+          { "matcher": { "id": "byName", "options": "pod" }, "properties": [{ "id": "custom.width", "value": 260 }] },
+          { "matcher": { "id": "byName", "options": "node" }, "properties": [{ "id": "custom.width", "value": 160 }] }
+        ]
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 23 },
+      "id": 8,
+      "options": { "sortBy": [{ "desc": false, "displayName": "pod" }] },
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "kube_pod_info{namespace=\"default\"}",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "transformations": [
+        { "id": "filterFieldsByName", "options": { "include": { "names": ["pod", "node", "namespace", "created_by_name"] } } }
+      ],
+      "title": "Pod → Node Placement (default namespace)",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 31 },
+      "id": 9,
+      "title": "Node Resource Utilization",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": { "unit": "percentunit", "min": 0, "max": 1, "color": { "mode": "palette-classic" } },
+        "overrides": []
+      },
+      "gridPos": { "h": 7, "w": 12, "x": 0, "y": 32 },
+      "id": 10,
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "sum by (node) (kube_pod_container_resource_requests{resource=\"cpu\", unit=\"core\", namespace!~\"kube-system|monitoring\"}) / sum by (node) (kube_node_status_allocatable{resource=\"cpu\", unit=\"core\"})",
+          "legendFormat": "{{ node }}",
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Requested / Allocatable per Node",
+      "type": "timeseries"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": { "unit": "percentunit", "min": 0, "max": 1, "color": { "mode": "palette-classic" } },
+        "overrides": []
+      },
+      "gridPos": { "h": 7, "w": 12, "x": 12, "y": 32 },
+      "id": 11,
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "sum by (node) (kube_pod_container_resource_requests{resource=\"memory\", unit=\"byte\", namespace!~\"kube-system|monitoring\"}) / sum by (node) (kube_node_status_allocatable{resource=\"memory\", unit=\"byte\"})",
+          "legendFormat": "{{ node }}",
+          "refId": "A"
+        }
+      ],
+      "title": "Memory Requested / Allocatable per Node",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 38,
+  "tags": ["energy", "scheduler", "kubernetes"],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "name": "DS_PROMETHEUS",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "type": "datasource"
+      }
+    ]
+  },
+  "time": { "from": "now-30m", "to": "now" },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Energy-Aware Scheduler — Comparison",
+  "uid": "energy-scheduler-comparison",
+  "version": 1
+}

@@ -1,0 +1,45 @@
+# KIND config with Kepler extraMounts
+#
+# Use this INSTEAD OF cluster/kind-config.yaml if you want to install Kepler.
+#
+# Steps to switch:
+#   cp docs/kind-config-kepler.yaml cluster/kind-config.yaml
+#   bash scripts/teardown.sh
+#   bash scripts/setup-cluster.sh
+#   bash scripts/label-nodes.sh
+#   bash scripts/install-monitoring.sh
+#   bash scripts/install-kepler.sh
+#
+# WARNING: This destroys the existing cluster and all workloads.
+
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+
+nodes:
+  - role: control-plane
+    extraMounts:
+      - hostPath: /proc
+        containerPath: /proc-host
+      - hostPath: /usr/src
+        containerPath: /usr/src
+
+  - role: worker
+    extraMounts:
+      - hostPath: /proc
+        containerPath: /proc-host
+      - hostPath: /usr/src
+        containerPath: /usr/src
+
+  - role: worker
+    extraMounts:
+      - hostPath: /proc
+        containerPath: /proc-host
+      - hostPath: /usr/src
+        containerPath: /usr/src
+
+  - role: worker
+    extraMounts:
+      - hostPath: /proc
+        containerPath: /proc-host
+      - hostPath: /usr/src
+        containerPath: /usr/src

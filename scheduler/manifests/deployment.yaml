@@ -1,0 +1,113 @@
+---
+# =============================================================================
+# scheduler/manifests/deployment.yaml
+# =============================================================================
+# Deployment for energy-aware-scheduler running in kube-system.
+#
+# Image name: energy-aware-scheduler:v0.1.0
+# This image is built locally via:
+#   make local-image   OR   make build + docker build (see docs/week2-checklist.md)
+# and loaded into KIND:
+#   kind load docker-image energy-aware-scheduler:v0.1.0 --name energy
+#
+# The image is based on the existing Dockerfile at:
+#   scheduler/scheduler-plugins/build/scheduler/Dockerfile
+#
+# Key design decisions:
+#
+# 1. imagePullPolicy: Never
+#    The image is loaded directly into KIND nodes; it will not be found in
+#    any container registry. Never prevents Kubernetes from attempting a
+#    pull (which would fail with ImagePullBackOff).
+#
+# 2. --config=/etc/kubernetes/scheduler/scheduler-config.yaml
+#    Points to the ConfigMap-mounted configuration file.
+#
+# 3. --v=4
+#    Verbosity level 4 enables the V(4) Info logs in the EnergyAware plugin
+#    so that scored-node lines appear in the pod logs.
+#
+# 4. The container runs as user 65532 (nonroot) to match the distroless
+#    base image used in the repository's Dockerfile.
+#
+# 5. replicas: 1
+#    Only one replica is needed. Leader election handles high availability
+#    if replicas are increased later.
+# =============================================================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: energy-aware-scheduler
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/name: energy-aware-scheduler
+    app.kubernetes.io/component: scheduler
+    app.kubernetes.io/part-of: energy-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: energy-aware-scheduler
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: energy-aware-scheduler
+        app.kubernetes.io/component: scheduler
+    spec:
+      serviceAccountName: energy-aware-scheduler
+      # Run on the control-plane node alongside the default scheduler.
+      # For a KIND cluster this avoids scheduling conflicts on small worker nodes.
+      nodeSelector:
+        node-role.kubernetes.io/control-plane: ""
+      tolerations:
+        - key: node-role.kubernetes.io/control-plane
+          effect: NoSchedule
+      priorityClassName: system-cluster-critical
+      containers:
+        - name: energy-aware-scheduler
+          image: energy-aware-scheduler:v0.1.0
+          # Never pull — the image is loaded locally into KIND via:
+          #   kind load docker-image energy-aware-scheduler:v0.1.0 --name energy
+          imagePullPolicy: Never
+          command:
+            - /bin/kube-scheduler
+            - --config=/etc/kubernetes/scheduler/scheduler-config.yaml
+            - --v=4
+          volumeMounts:
+            - name: scheduler-config
+              mountPath: /etc/kubernetes/scheduler
+              readOnly: true
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 10259
+              scheme: HTTPS
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 10259
+              scheme: HTTPS
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 65532
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
+      volumes:
+        - name: scheduler-config
+          configMap:
+            name: energy-aware-scheduler-config

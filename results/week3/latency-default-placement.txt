@@ -1,0 +1,5 @@
+NAME                            READY   STATUS        RESTARTS   AGE   IP           NODE             NOMINATED NODE   READINESS GATES
+nginx-default-5567b45c9-cz9vs   1/1     Terminating   0          50s   10.244.1.5   energy-worker3   <none>           <none>
+nginx-default-5567b45c9-qcsq9   1/1     Terminating   0          50s   10.244.3.6   energy-worker    <none>           <none>
+nginx-default-5567b45c9-rnbbg   1/1     Running       0          42s   10.244.3.7   energy-worker    <none>           <none>
+nginx-default-5567b45c9-zc4zn   1/1     Running       0          42s   10.244.2.4   energy-worker2   <none>           <none>

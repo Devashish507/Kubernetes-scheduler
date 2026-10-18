@@ -1,0 +1,51 @@
+---
+# =============================================================================
+# workloads/nginx-default.yaml
+# =============================================================================
+# Latency-sensitive workload (nginx) — scheduled by the DEFAULT scheduler.
+#
+# Deploy this alongside nginx-energy-aware.yaml to prove that:
+#   1. The default scheduler is still functional.
+#   2. Each workload is scheduled by the correct scheduler.
+#
+# Check which scheduler handled a pod:
+#   kubectl describe pod <pod-name> | grep -A5 'Events:'
+# The Events section will show either:
+#   Scheduled by default-scheduler
+#   Scheduled by energy-aware-scheduler
+# =============================================================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-default
+  namespace: default
+  labels:
+    app: nginx-default
+    energy.project/workload-type: latency-sensitive
+    energy.project/scheduler: default-scheduler
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-default
+  template:
+    metadata:
+      labels:
+        app: nginx-default
+        energy.project/workload-type: latency-sensitive
+        energy.project/scheduler: default-scheduler
+    spec:
+      # Uses default-scheduler (explicit — same as omitting the field).
+      schedulerName: default-scheduler
+      containers:
+        - name: nginx
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 50m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi

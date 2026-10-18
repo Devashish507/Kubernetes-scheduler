@@ -1,0 +1,2 @@
+NAME                   READY   STATUS      RESTARTS   AGE   IP           NODE            NOMINATED NODE   READINESS GATES
+stress-default-psc9l   0/1     Completed   0          76s   10.244.3.9   energy-worker   <none>           <none>

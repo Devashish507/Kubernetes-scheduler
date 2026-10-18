@@ -1,0 +1,161 @@
+---
+# =============================================================================
+# scheduler/manifests/rbac.yaml
+# =============================================================================
+# RBAC for energy-aware-scheduler.
+#
+# Permissions are derived from the ClusterRole that Kubernetes creates for
+# the built-in kube-scheduler.  To inspect what the default scheduler uses:
+#   kubectl describe clusterrole system:kube-scheduler
+#
+# We replicate the required subset for a second scheduler:
+#   - Watching/listing nodes, pods, PersistentVolumes, etc.
+#   - Creating/updating Bindings and Pod status updates (scheduling).
+#   - Leader-election: Lease resources in kube-system.
+#   - Events: for scheduler event recording.
+#
+# We do NOT grant cluster-admin. Every rule is justified below.
+# =============================================================================
+
+# -------------------------------------------------------
+# ClusterRole: node/pod read + scheduling verbs
+# -------------------------------------------------------
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: energy-aware-scheduler
+  labels:
+    app.kubernetes.io/name: energy-aware-scheduler
+    app.kubernetes.io/component: scheduler
+rules:
+  # Required to read node information for scheduling decisions.
+  - apiGroups: [""]
+    resources: ["nodes"]
+    verbs: ["get", "list", "watch"]
+
+  # Required to read pods and update their status/binding.
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["pods/binding"]
+    verbs: ["create"]
+  - apiGroups: [""]
+    resources: ["pods/status"]
+    verbs: ["patch", "update"]
+
+  # Required to read PersistentVolumes for volume-aware scheduling.
+  - apiGroups: [""]
+    resources: ["persistentvolumes", "persistentvolumeclaims"]
+    verbs: ["get", "list", "watch"]
+
+  # Required for topology-aware scheduling (storage classes, CSI nodes).
+  - apiGroups: ["storage.k8s.io"]
+    resources: ["storageclasses", "csinodes", "csidrivers", "csistoragecapacities", "volumeattachments"]
+    verbs: ["get", "list", "watch"]
+
+  # Required for dynamic resource allocation (DRA).
+  - apiGroups: ["resource.k8s.io"]
+    resources: ["deviceclasses", "resourceclaims", "resourceslices"]
+    verbs: ["get", "list", "watch"]
+
+  # Required for auth extension
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["get", "list", "watch"]
+
+  # Required to record scheduler events.
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create", "patch", "update"]
+
+  # Required for reading ReplicationControllers, ReplicaSets, StatefulSets,
+  # and Services for scheduling anti-affinity rules.
+  - apiGroups: [""]
+    resources: ["replicationcontrollers", "services", "namespaces"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["replicasets", "statefulsets"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["policy"]
+    resources: ["poddisruptionbudgets"]
+    verbs: ["get", "list", "watch"]
+
+  # Required to post scheduling results (Bindings).
+  - apiGroups: [""]
+    resources: ["bindings"]
+    verbs: ["create"]
+
+  # Required for scheduler health checks and config.
+  - apiGroups: ["coordination.k8s.io"]
+    resources: ["leases"]
+    verbs: ["create", "get", "list", "update"]
+
+---
+# Bind the ClusterRole to the ServiceAccount.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: energy-aware-scheduler
+  labels:
+    app.kubernetes.io/name: energy-aware-scheduler
+    app.kubernetes.io/component: scheduler
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: energy-aware-scheduler
+subjects:
+  - kind: ServiceAccount
+    name: energy-aware-scheduler
+    namespace: kube-system
+
+---
+# -------------------------------------------------------
+# Role: leader-election Lease in kube-system
+#
+# The scheduler uses a Lease in kube-system for leader election.
+# This is a namespaced Role (not ClusterRole) so it only grants
+# access to the Lease named 'energy-aware-scheduler' in kube-system.
+# -------------------------------------------------------
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: energy-aware-scheduler-leaderelection
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/name: energy-aware-scheduler
+    app.kubernetes.io/component: scheduler
+rules:
+  - apiGroups: ["coordination.k8s.io"]
+    resources: ["leases"]
+    resourceNames: ["energy-aware-scheduler"]
+    verbs: ["get", "update", "patch"]
+  - apiGroups: ["coordination.k8s.io"]
+    resources: ["leases"]
+    verbs: ["create"]
+  # ConfigMaps for older leader-election fallback (pre-1.20 environments).
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    resourceNames: ["energy-aware-scheduler"]
+    verbs: ["get", "update"]
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["create"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: energy-aware-scheduler-leaderelection
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/name: energy-aware-scheduler
+    app.kubernetes.io/component: scheduler
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: energy-aware-scheduler-leaderelection
+subjects:
+  - kind: ServiceAccount
+    name: energy-aware-scheduler
+    namespace: kube-system
