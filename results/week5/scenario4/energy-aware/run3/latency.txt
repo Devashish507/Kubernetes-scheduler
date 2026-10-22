@@ -1,0 +1,10 @@
+Pod                                           Created                   Scheduled                 Delay(s)  
+--------------------------------------------------------------------------------------------------------------
+scenario4-batch-energy-aware-69cc65c854-bdcvt 2026-10-18T12:21:06Z      2026-10-18T12:21:06Z      0.000     
+scenario4-batch-energy-aware-69cc65c854-dk7rb 2026-10-18T12:21:06Z      2026-10-18T12:21:06Z      0.000     
+scenario4-batch-energy-aware-69cc65c854-zrqs5 2026-10-18T12:21:06Z      2026-10-18T12:21:06Z      0.000     
+scenario4-latency-energy-aware-568fc5568-46rls 2026-10-18T12:21:06Z      2026-10-18T12:21:06Z      0.000     
+scenario4-latency-energy-aware-568fc5568-k78dp 2026-10-18T12:21:06Z      2026-10-18T12:21:06Z      0.000     
+scenario4-latency-energy-aware-568fc5568-lsnqp 2026-10-18T12:21:06Z      2026-10-18T12:21:06Z      0.000     
+--------------------------------------------------------------------------------------------------------------
+Mean Delay: 0.000s | Min: 0.000s | Max: 0.000s

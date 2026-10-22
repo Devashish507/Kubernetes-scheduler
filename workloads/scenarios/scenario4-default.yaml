@@ -1,0 +1,83 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scenario4-latency-default
+  namespace: default
+  labels:
+    app: scenario4-latency-default
+    energy.project/scenario: scenario4
+    energy.project/scheduler: default-scheduler
+    energy.project/workload-type: latency-sensitive
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: scenario4-latency-default
+  template:
+    metadata:
+      labels:
+        app: scenario4-latency-default
+        energy.project/scenario: scenario4
+        energy.project/scheduler: default-scheduler
+        energy.project/workload-type: latency-sensitive
+      annotations:
+        energy.project/workload-type: latency-sensitive
+    spec:
+      schedulerName: default-scheduler
+      containers:
+        - name: nginx
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scenario4-batch-default
+  namespace: default
+  labels:
+    app: scenario4-batch-default
+    energy.project/scenario: scenario4
+    energy.project/scheduler: default-scheduler
+    energy.project/workload-type: batch
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: scenario4-batch-default
+  template:
+    metadata:
+      labels:
+        app: scenario4-batch-default
+        energy.project/scenario: scenario4
+        energy.project/scheduler: default-scheduler
+        energy.project/workload-type: batch
+      annotations:
+        energy.project/workload-type: batch
+    spec:
+      schedulerName: default-scheduler
+      containers:
+        - name: stress
+          image: alexeiled/stress-ng:latest
+          args:
+            - "--cpu"
+            - "1"
+            - "--cpu-load"
+            - "20"
+            - "--timeout"
+            - "600"
+          resources:
+            requests:
+              cpu: 250m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi

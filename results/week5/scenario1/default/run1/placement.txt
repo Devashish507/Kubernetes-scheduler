@@ -1,0 +1,3 @@
+NAME                                 READY   STATUS    RESTARTS   AGE   IP           NODE             NOMINATED NODE   READINESS GATES
+scenario1-default-697887f997-rlvc6   1/1     Running   0          17s   10.244.3.8   energy-worker    <none>           <none>
+scenario1-default-697887f997-s7mgt   1/1     Running   0          17s   10.244.1.6   energy-worker3   <none>           <none>

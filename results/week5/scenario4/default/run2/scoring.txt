@@ -1,0 +1,10 @@
+I1018 12:18:30.541239       1 eventhandlers.go:407] "Update event for scheduled pod" pod="default/scenario4-batch-default-586d9d5fd-pkdsv"
+I1018 12:18:30.583076       1 eventhandlers.go:407] "Update event for scheduled pod" pod="default/scenario4-batch-default-586d9d5fd-ktpmw"
+I1018 12:18:30.597488       1 eventhandlers.go:407] "Update event for scheduled pod" pod="default/scenario4-batch-default-586d9d5fd-7tlt4"
+I1018 12:18:35.508730       1 httplog.go:134] "HTTP" verb="GET" URI="/healthz" latency="230.725µs" userAgent="kube-probe/1.37" audit-ID="" srcIP="10.244.0.1:33528" resp=200
+I1018 12:18:39.584518       1 httplog.go:134] "HTTP" verb="GET" URI="/healthz" latency="84.151µs" userAgent="kube-probe/1.37" audit-ID="" srcIP="10.244.0.1:33532" resp=200
+I1018 12:18:39.999358       1 eventhandlers.go:82] "Update event for node" node="energy-worker2"
+I1018 12:18:40.507189       1 httplog.go:134] "HTTP" verb="GET" URI="/healthz" latency="53.868µs" userAgent="kube-probe/1.37" audit-ID="" srcIP="10.244.0.1:50854" resp=200
+I1018 12:18:45.508439       1 httplog.go:134] "HTTP" verb="GET" URI="/healthz" latency="53.226µs" userAgent="kube-probe/1.37" audit-ID="" srcIP="10.244.0.1:50860" resp=200
+I1018 12:18:45.732033       1 ca_rotation.go:93] "Checking CA file content" caFile="/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+I1018 12:18:45.732101       1 ca_rotation.go:111] "CA file unchanged, skipping transport rotation" caFile="/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"

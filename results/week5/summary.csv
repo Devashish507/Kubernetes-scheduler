@@ -1,0 +1,9 @@
+scenario,scheduler,total_estimated_power_W,mean_scheduling_delay_s,min_scheduling_delay_s,max_scheduling_delay_s,placements_energy_worker_eff,placements_energy_worker2_med,placements_energy_worker3_pwr,util_energy_worker_pct,util_energy_worker2_pct,util_energy_worker3_pct
+scenario1,default,148.61,0.167,0.0,1.0,1.0,0.0,1.0,3.61,3.58,3.58
+scenario1,energy-aware,150.1,0.0,0.0,0.0,1.0,1.0,0.0,4.21,4.21,4.2
+scenario2,default,153.45,0.0,0.0,0.0,2.0,2.0,2.0,5.68,5.59,5.59
+scenario2,energy-aware,160.53,0.278,0.0,1.0,3.0,2.0,1.0,8.21,8.64,8.61
+scenario3,default,154.61,0.042,0.0,1.0,3.0,2.7,2.3,6.19,6.05,6.08
+scenario3,energy-aware,153.85,0.25,0.0,1.0,3.0,3.0,2.0,5.76,5.77,5.78
+scenario4,default,155.48,0.0,0.0,0.0,2.0,2.0,2.0,6.39,6.49,6.45
+scenario4,energy-aware,155.46,0.0,0.0,0.0,2.0,2.0,2.0,6.48,6.41,6.45

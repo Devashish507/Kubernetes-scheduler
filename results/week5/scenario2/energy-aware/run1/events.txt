@@ -1,0 +1,279 @@
+LAST SEEN   TYPE      REASON                    OBJECT                                         MESSAGE
+61m         Normal    NodeHasSufficientMemory   node/energy-worker3                            Node energy-worker3 status is now: NodeHasSufficientMemory
+61m         Normal    NodeHasNoDiskPressure     node/energy-worker3                            Node energy-worker3 status is now: NodeHasNoDiskPressure
+61m         Normal    Starting                  node/energy-worker3                            Starting kubelet.
+61m         Normal    NodeHasSufficientMemory   node/energy-control-plane                      Node energy-control-plane status is now: NodeHasSufficientMemory
+61m         Normal    NodeHasNoDiskPressure     node/energy-control-plane                      Node energy-control-plane status is now: NodeHasNoDiskPressure
+61m         Normal    NodeHasSufficientPID      node/energy-control-plane                      Node energy-control-plane status is now: NodeHasSufficientPID
+61m         Normal    NodeAllocatableEnforced   node/energy-control-plane                      Updated Node Allocatable limit across pods
+61m         Normal    Starting                  node/energy-control-plane                      Starting kubelet.
+60m         Warning   Rebooted                  node/energy-worker3                            Node energy-worker3 has been rebooted, boot id: 4bef1413-89c4-4f2b-b41e-8a0ecbd733a6
+61m         Normal    NodeAllocatableEnforced   node/energy-worker3                            Updated Node Allocatable limit across pods
+61m         Normal    NodeHasSufficientPID      node/energy-worker3                            Node energy-worker3 status is now: NodeHasSufficientPID
+60m         Warning   Rebooted                  node/energy-control-plane                      Node energy-control-plane has been rebooted, boot id: 4bef1413-89c4-4f2b-b41e-8a0ecbd733a6
+61m         Normal    Starting                  node/energy-worker2                            Starting kubelet.
+61m         Normal    NodeAllocatableEnforced   node/energy-worker                             Updated Node Allocatable limit across pods
+61m         Normal    NodeHasSufficientPID      node/energy-worker                             Node energy-worker status is now: NodeHasSufficientPID
+61m         Normal    NodeHasNoDiskPressure     node/energy-worker                             Node energy-worker status is now: NodeHasNoDiskPressure
+61m         Normal    NodeHasSufficientMemory   node/energy-worker                             Node energy-worker status is now: NodeHasSufficientMemory
+61m         Normal    Starting                  node/energy-worker                             Starting kubelet.
+61m         Normal    NodeHasSufficientPID      node/energy-worker2                            Node energy-worker2 status is now: NodeHasSufficientPID
+61m         Normal    NodeAllocatableEnforced   node/energy-worker2                            Updated Node Allocatable limit across pods
+61m         Normal    NodeHasSufficientMemory   node/energy-worker2                            Node energy-worker2 status is now: NodeHasSufficientMemory
+61m         Normal    NodeHasNoDiskPressure     node/energy-worker2                            Node energy-worker2 status is now: NodeHasNoDiskPressure
+60m         Warning   Rebooted                  node/energy-worker2                            Node energy-worker2 has been rebooted, boot id: 4bef1413-89c4-4f2b-b41e-8a0ecbd733a6
+60m         Warning   Rebooted                  node/energy-worker                             Node energy-worker has been rebooted, boot id: 4bef1413-89c4-4f2b-b41e-8a0ecbd733a6
+60m         Normal    RegisteredNode            node/energy-worker3                            Node energy-worker3 event: Registered Node energy-worker3 in Controller
+60m         Normal    RegisteredNode            node/energy-worker2                            Node energy-worker2 event: Registered Node energy-worker2 in Controller
+60m         Normal    Starting                  node/energy-worker2                            
+60m         Normal    RegisteredNode            node/energy-worker                             Node energy-worker event: Registered Node energy-worker in Controller
+60m         Normal    RegisteredNode            node/energy-control-plane                      Node energy-control-plane event: Registered Node energy-control-plane in Controller
+60m         Normal    Starting                  node/energy-control-plane                      
+60m         Normal    Starting                  node/energy-worker                             
+60m         Normal    Starting                  node/energy-worker3                            
+20m         Normal    RegisteredNode            node/energy-control-plane                      Node energy-control-plane event: Registered Node energy-control-plane in Controller
+20m         Normal    RegisteredNode            node/energy-worker2                            Node energy-worker2 event: Registered Node energy-worker2 in Controller
+20m         Normal    RegisteredNode            node/energy-worker                             Node energy-worker event: Registered Node energy-worker in Controller
+20m         Normal    RegisteredNode            node/energy-worker3                            Node energy-worker3 event: Registered Node energy-worker3 in Controller
+19m         Normal    RegisteredNode            node/energy-worker                             Node energy-worker event: Registered Node energy-worker in Controller
+19m         Normal    RegisteredNode            node/energy-control-plane                      Node energy-control-plane event: Registered Node energy-control-plane in Controller
+19m         Normal    RegisteredNode            node/energy-worker3                            Node energy-worker3 event: Registered Node energy-worker3 in Controller
+19m         Normal    RegisteredNode            node/energy-worker2                            Node energy-worker2 event: Registered Node energy-worker2 in Controller
+18m         Normal    SuccessfulCreate          replicaset/nginx-energy-aware-59b49947b5       Created pod: nginx-energy-aware-59b49947b5-9gmzq
+18m         Normal    SuccessfulCreate          replicaset/nginx-energy-aware-59b49947b5       Created pod: nginx-energy-aware-59b49947b5-jkglj
+18m         Normal    ScalingReplicaSet         deployment/nginx-energy-aware                  Scaled up replica set nginx-energy-aware-59b49947b5 from 0 to 2
+18m         Normal    SuccessfulCreate          job/stress-energy-aware                        Created pod: stress-energy-aware-72c56
+18m         Normal    Created                   pod/nginx-energy-aware-59b49947b5-9gmzq        Container created
+18m         Normal    Created                   pod/nginx-energy-aware-59b49947b5-jkglj        Container created
+18m         Normal    Started                   pod/nginx-energy-aware-59b49947b5-jkglj        Container started
+18m         Normal    Pulling                   pod/stress-energy-aware-72c56                  Pulling image "alexeiled/stress-ng:latest"
+18m         Normal    Pulled                    pod/nginx-energy-aware-59b49947b5-jkglj        Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+18m         Normal    Pulled                    pod/nginx-energy-aware-59b49947b5-9gmzq        Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+18m         Normal    Started                   pod/nginx-energy-aware-59b49947b5-9gmzq        Container started
+18m         Normal    Pulled                    pod/stress-energy-aware-72c56                  Successfully pulled image "alexeiled/stress-ng:latest" in 2.689s (2.69s including waiting). Image size: 3939132 bytes.
+18m         Normal    Started                   pod/stress-energy-aware-72c56                  Container started
+18m         Normal    Created                   pod/stress-energy-aware-72c56                  Container created
+17m         Normal    Completed                 job/stress-energy-aware                        Job completed
+11m         Normal    Killing                   pod/nginx-energy-aware-59b49947b5-9gmzq        Stopping container nginx
+11m         Normal    Killing                   pod/nginx-energy-aware-59b49947b5-jkglj        Stopping container nginx
+9m          Normal    ScalingReplicaSet         deployment/scenario1-default                   Scaled up replica set scenario1-default-697887f997 from 0 to 2
+8m59s       Normal    Scheduled                 pod/scenario1-default-697887f997-l7czq         Successfully assigned default/scenario1-default-697887f997-l7czq to energy-worker
+8m59s       Normal    Scheduled                 pod/scenario1-default-697887f997-6lv8d         Successfully assigned default/scenario1-default-697887f997-6lv8d to energy-worker3
+9m          Normal    SuccessfulCreate          replicaset/scenario1-default-697887f997        Created pod: scenario1-default-697887f997-l7czq
+9m          Normal    SuccessfulCreate          replicaset/scenario1-default-697887f997        Created pod: scenario1-default-697887f997-6lv8d
+8m59s       Normal    Created                   pod/scenario1-default-697887f997-6lv8d         Container created
+8m59s       Normal    Pulled                    pod/scenario1-default-697887f997-6lv8d         Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+8m59s       Normal    Created                   pod/scenario1-default-697887f997-l7czq         Container created
+8m59s       Normal    Pulled                    pod/scenario1-default-697887f997-l7czq         Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+8m58s       Normal    Started                   pod/scenario1-default-697887f997-6lv8d         Container started
+8m58s       Normal    Started                   pod/scenario1-default-697887f997-l7czq         Container started
+8m45s       Normal    Killing                   pod/scenario1-default-697887f997-6lv8d         Stopping container nginx
+8m45s       Normal    Killing                   pod/scenario1-default-697887f997-l7czq         Stopping container nginx
+5m39s       Normal    Scheduled                 pod/scenario1-default-697887f997-rlvc6         Successfully assigned default/scenario1-default-697887f997-rlvc6 to energy-worker
+5m40s       Normal    ScalingReplicaSet         deployment/scenario1-default                   Scaled up replica set scenario1-default-697887f997 from 0 to 2
+5m40s       Normal    SuccessfulCreate          replicaset/scenario1-default-697887f997        Created pod: scenario1-default-697887f997-s7mgt
+5m40s       Normal    SuccessfulCreate          replicaset/scenario1-default-697887f997        Created pod: scenario1-default-697887f997-rlvc6
+5m39s       Normal    Scheduled                 pod/scenario1-default-697887f997-s7mgt         Successfully assigned default/scenario1-default-697887f997-s7mgt to energy-worker3
+5m39s       Normal    Created                   pod/scenario1-default-697887f997-s7mgt         Container created
+5m39s       Normal    Started                   pod/scenario1-default-697887f997-s7mgt         Container started
+5m39s       Normal    Pulled                    pod/scenario1-default-697887f997-rlvc6         Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+5m39s       Normal    Created                   pod/scenario1-default-697887f997-rlvc6         Container created
+5m39s       Normal    Started                   pod/scenario1-default-697887f997-rlvc6         Container started
+5m39s       Normal    Pulled                    pod/scenario1-default-697887f997-s7mgt         Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+5m19s       Normal    Killing                   pod/scenario1-default-697887f997-s7mgt         Stopping container nginx
+5m19s       Normal    Killing                   pod/scenario1-default-697887f997-rlvc6         Stopping container nginx
+5m5s        Normal    SuccessfulCreate          replicaset/scenario1-default-697887f997        Created pod: scenario1-default-697887f997-stw6t
+5m5s        Normal    SuccessfulCreate          replicaset/scenario1-default-697887f997        Created pod: scenario1-default-697887f997-jqcc7
+5m4s        Normal    Scheduled                 pod/scenario1-default-697887f997-jqcc7         Successfully assigned default/scenario1-default-697887f997-jqcc7 to energy-worker3
+5m4s        Normal    Scheduled                 pod/scenario1-default-697887f997-stw6t         Successfully assigned default/scenario1-default-697887f997-stw6t to energy-worker
+5m5s        Normal    ScalingReplicaSet         deployment/scenario1-default                   Scaled up replica set scenario1-default-697887f997 from 0 to 2
+5m4s        Normal    Pulled                    pod/scenario1-default-697887f997-stw6t         Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+5m4s        Normal    Created                   pod/scenario1-default-697887f997-stw6t         Container created
+5m4s        Normal    Started                   pod/scenario1-default-697887f997-stw6t         Container started
+5m4s        Normal    Pulled                    pod/scenario1-default-697887f997-jqcc7         Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+5m4s        Normal    Created                   pod/scenario1-default-697887f997-jqcc7         Container created
+5m4s        Normal    Started                   pod/scenario1-default-697887f997-jqcc7         Container started
+4m44s       Normal    Killing                   pod/scenario1-default-697887f997-stw6t         Stopping container nginx
+4m44s       Normal    Killing                   pod/scenario1-default-697887f997-jqcc7         Stopping container nginx
+4m31s       Normal    ScalingReplicaSet         deployment/scenario1-default                   Scaled up replica set scenario1-default-697887f997 from 0 to 2
+4m30s       Normal    Pulled                    pod/scenario1-default-697887f997-89gr9         Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+4m30s       Normal    Created                   pod/scenario1-default-697887f997-89gr9         Container created
+4m30s       Normal    Created                   pod/scenario1-default-697887f997-ft2br         Container created
+4m30s       Normal    Scheduled                 pod/scenario1-default-697887f997-ft2br         Successfully assigned default/scenario1-default-697887f997-ft2br to energy-worker3
+4m30s       Normal    Pulled                    pod/scenario1-default-697887f997-ft2br         Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+4m29s       Normal    Scheduled                 pod/scenario1-default-697887f997-89gr9         Successfully assigned default/scenario1-default-697887f997-89gr9 to energy-worker
+4m30s       Normal    SuccessfulCreate          replicaset/scenario1-default-697887f997        Created pod: scenario1-default-697887f997-ft2br
+4m30s       Normal    SuccessfulCreate          replicaset/scenario1-default-697887f997        Created pod: scenario1-default-697887f997-89gr9
+4m29s       Normal    Started                   pod/scenario1-default-697887f997-ft2br         Container started
+4m29s       Normal    Started                   pod/scenario1-default-697887f997-89gr9         Container started
+4m9s        Normal    Killing                   pod/scenario1-default-697887f997-ft2br         Stopping container nginx
+4m9s        Normal    Killing                   pod/scenario1-default-697887f997-89gr9         Stopping container nginx
+3m55s       Normal    SuccessfulCreate          replicaset/scenario1-energy-aware-768bbfbb5c   Created pod: scenario1-energy-aware-768bbfbb5c-2xlfs
+3m55s       Normal    ScalingReplicaSet         deployment/scenario1-energy-aware              Scaled up replica set scenario1-energy-aware-768bbfbb5c from 0 to 2
+3m55s       Normal    SuccessfulCreate          replicaset/scenario1-energy-aware-768bbfbb5c   Created pod: scenario1-energy-aware-768bbfbb5c-lpcc8
+3m54s       Normal    Pulled                    pod/scenario1-energy-aware-768bbfbb5c-2xlfs    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+3m54s       Normal    Created                   pod/scenario1-energy-aware-768bbfbb5c-2xlfs    Container created
+3m54s       Normal    Created                   pod/scenario1-energy-aware-768bbfbb5c-lpcc8    Container created
+3m54s       Normal    Started                   pod/scenario1-energy-aware-768bbfbb5c-lpcc8    Container started
+3m54s       Normal    Pulled                    pod/scenario1-energy-aware-768bbfbb5c-lpcc8    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+3m53s       Normal    Started                   pod/scenario1-energy-aware-768bbfbb5c-2xlfs    Container started
+3m33s       Normal    Killing                   pod/scenario1-energy-aware-768bbfbb5c-2xlfs    Stopping container nginx
+3m33s       Normal    Killing                   pod/scenario1-energy-aware-768bbfbb5c-lpcc8    Stopping container nginx
+3m20s       Normal    ScalingReplicaSet         deployment/scenario1-energy-aware              Scaled up replica set scenario1-energy-aware-768bbfbb5c from 0 to 2
+3m20s       Normal    SuccessfulCreate          replicaset/scenario1-energy-aware-768bbfbb5c   Created pod: scenario1-energy-aware-768bbfbb5c-ggxvp
+3m20s       Normal    SuccessfulCreate          replicaset/scenario1-energy-aware-768bbfbb5c   Created pod: scenario1-energy-aware-768bbfbb5c-6jsxl
+3m19s       Normal    Created                   pod/scenario1-energy-aware-768bbfbb5c-ggxvp    Container created
+3m19s       Normal    Started                   pod/scenario1-energy-aware-768bbfbb5c-ggxvp    Container started
+3m19s       Normal    Pulled                    pod/scenario1-energy-aware-768bbfbb5c-6jsxl    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+3m19s       Normal    Created                   pod/scenario1-energy-aware-768bbfbb5c-6jsxl    Container created
+3m19s       Normal    Pulled                    pod/scenario1-energy-aware-768bbfbb5c-ggxvp    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+3m19s       Normal    Started                   pod/scenario1-energy-aware-768bbfbb5c-6jsxl    Container started
+2m59s       Normal    Killing                   pod/scenario1-energy-aware-768bbfbb5c-6jsxl    Stopping container nginx
+2m59s       Normal    Killing                   pod/scenario1-energy-aware-768bbfbb5c-ggxvp    Stopping container nginx
+2m45s       Normal    SuccessfulCreate          replicaset/scenario1-energy-aware-768bbfbb5c   Created pod: scenario1-energy-aware-768bbfbb5c-kkkhm
+2m45s       Normal    Pulled                    pod/scenario1-energy-aware-768bbfbb5c-mw6gr    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+2m45s       Normal    ScalingReplicaSet         deployment/scenario1-energy-aware              Scaled up replica set scenario1-energy-aware-768bbfbb5c from 0 to 2
+2m45s       Normal    Pulled                    pod/scenario1-energy-aware-768bbfbb5c-kkkhm    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+2m45s       Normal    SuccessfulCreate          replicaset/scenario1-energy-aware-768bbfbb5c   Created pod: scenario1-energy-aware-768bbfbb5c-mw6gr
+2m44s       Normal    Started                   pod/scenario1-energy-aware-768bbfbb5c-kkkhm    Container started
+2m44s       Normal    Created                   pod/scenario1-energy-aware-768bbfbb5c-mw6gr    Container created
+2m44s       Normal    Created                   pod/scenario1-energy-aware-768bbfbb5c-kkkhm    Container created
+2m44s       Normal    Started                   pod/scenario1-energy-aware-768bbfbb5c-mw6gr    Container started
+2m24s       Normal    Killing                   pod/scenario1-energy-aware-768bbfbb5c-mw6gr    Stopping container nginx
+2m24s       Normal    Killing                   pod/scenario1-energy-aware-768bbfbb5c-kkkhm    Stopping container nginx
+2m10s       Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-42vsd          Successfully assigned default/scenario2-default-6bfffbdb8-42vsd to energy-worker3
+2m10s       Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-4jmrh          Successfully assigned default/scenario2-default-6bfffbdb8-4jmrh to energy-worker2
+2m10s       Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-nb9k4          Successfully assigned default/scenario2-default-6bfffbdb8-nb9k4 to energy-worker
+2m11s       Normal    ScalingReplicaSet         deployment/scenario2-default                   Scaled up replica set scenario2-default-6bfffbdb8 from 0 to 6
+2m11s       Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-rpjws
+2m11s       Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-xhp6x
+2m11s       Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-qn877
+2m11s       Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-42vsd
+2m11s       Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-4jmrh
+2m11s       Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-nb9k4
+2m10s       Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-xhp6x          Successfully assigned default/scenario2-default-6bfffbdb8-xhp6x to energy-worker2
+2m10s       Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-rpjws          Successfully assigned default/scenario2-default-6bfffbdb8-rpjws to energy-worker
+2m10s       Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-qn877          Successfully assigned default/scenario2-default-6bfffbdb8-qn877 to energy-worker3
+2m10s       Normal    Created                   pod/scenario2-default-6bfffbdb8-42vsd          Container created
+2m10s       Normal    Created                   pod/scenario2-default-6bfffbdb8-rpjws          Container created
+2m10s       Normal    Created                   pod/scenario2-default-6bfffbdb8-xhp6x          Container created
+2m10s       Normal    Started                   pod/scenario2-default-6bfffbdb8-xhp6x          Container started
+2m10s       Normal    Created                   pod/scenario2-default-6bfffbdb8-nb9k4          Container created
+2m10s       Normal    Pulled                    pod/scenario2-default-6bfffbdb8-xhp6x          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+2m10s       Normal    Started                   pod/scenario2-default-6bfffbdb8-nb9k4          Container started
+2m10s       Normal    Pulled                    pod/scenario2-default-6bfffbdb8-nb9k4          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+2m10s       Normal    Started                   pod/scenario2-default-6bfffbdb8-rpjws          Container started
+2m10s       Normal    Started                   pod/scenario2-default-6bfffbdb8-42vsd          Container started
+2m10s       Normal    Pulled                    pod/scenario2-default-6bfffbdb8-rpjws          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+2m10s       Normal    Pulled                    pod/scenario2-default-6bfffbdb8-42vsd          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+2m10s       Normal    Started                   pod/scenario2-default-6bfffbdb8-qn877          Container started
+2m10s       Normal    Created                   pod/scenario2-default-6bfffbdb8-qn877          Container created
+2m10s       Normal    Pulled                    pod/scenario2-default-6bfffbdb8-qn877          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+2m10s       Normal    Started                   pod/scenario2-default-6bfffbdb8-4jmrh          Container started
+2m10s       Normal    Created                   pod/scenario2-default-6bfffbdb8-4jmrh          Container created
+2m10s       Normal    Pulled                    pod/scenario2-default-6bfffbdb8-4jmrh          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+109s        Normal    Killing                   pod/scenario2-default-6bfffbdb8-4jmrh          Stopping container nginx
+109s        Normal    Killing                   pod/scenario2-default-6bfffbdb8-42vsd          Stopping container nginx
+109s        Normal    Killing                   pod/scenario2-default-6bfffbdb8-nb9k4          Stopping container nginx
+109s        Normal    Killing                   pod/scenario2-default-6bfffbdb8-qn877          Stopping container nginx
+109s        Normal    Killing                   pod/scenario2-default-6bfffbdb8-rpjws          Stopping container nginx
+109s        Normal    Killing                   pod/scenario2-default-6bfffbdb8-xhp6x          Stopping container nginx
+95s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-c7cj6
+94s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-zdcwv          Successfully assigned default/scenario2-default-6bfffbdb8-zdcwv to energy-worker2
+94s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-x62fg          Successfully assigned default/scenario2-default-6bfffbdb8-x62fg to energy-worker2
+95s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-d9xmh
+95s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-zdcwv
+94s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-ffrlq          Successfully assigned default/scenario2-default-6bfffbdb8-ffrlq to energy-worker
+95s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-ffrlq
+94s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-c7cj6          Successfully assigned default/scenario2-default-6bfffbdb8-c7cj6 to energy-worker3
+95s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-d274h
+95s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-x62fg
+94s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-d274h          Successfully assigned default/scenario2-default-6bfffbdb8-d274h to energy-worker3
+94s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-d9xmh          Successfully assigned default/scenario2-default-6bfffbdb8-d9xmh to energy-worker
+95s         Normal    ScalingReplicaSet         deployment/scenario2-default                   Scaled up replica set scenario2-default-6bfffbdb8 from 0 to 6
+94s         Normal    Started                   pod/scenario2-default-6bfffbdb8-zdcwv          Container started
+94s         Normal    Created                   pod/scenario2-default-6bfffbdb8-x62fg          Container created
+94s         Normal    Created                   pod/scenario2-default-6bfffbdb8-d274h          Container created
+94s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-d274h          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+94s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-d9xmh          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+94s         Normal    Created                   pod/scenario2-default-6bfffbdb8-d9xmh          Container created
+94s         Normal    Created                   pod/scenario2-default-6bfffbdb8-ffrlq          Container created
+94s         Normal    Started                   pod/scenario2-default-6bfffbdb8-x62fg          Container started
+94s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-ffrlq          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+94s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-c7cj6          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+94s         Normal    Started                   pod/scenario2-default-6bfffbdb8-d274h          Container started
+94s         Normal    Started                   pod/scenario2-default-6bfffbdb8-d9xmh          Container started
+94s         Normal    Started                   pod/scenario2-default-6bfffbdb8-c7cj6          Container started
+94s         Normal    Created                   pod/scenario2-default-6bfffbdb8-zdcwv          Container created
+94s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-zdcwv          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+94s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-x62fg          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+94s         Normal    Started                   pod/scenario2-default-6bfffbdb8-ffrlq          Container started
+94s         Normal    Created                   pod/scenario2-default-6bfffbdb8-c7cj6          Container created
+73s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-zdcwv          Stopping container nginx
+73s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-d274h          Stopping container nginx
+73s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-ffrlq          Stopping container nginx
+73s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-c7cj6          Stopping container nginx
+73s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-d9xmh          Stopping container nginx
+73s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-x62fg          Stopping container nginx
+55s         Normal    ScalingReplicaSet         deployment/scenario2-default                   Scaled up replica set scenario2-default-6bfffbdb8 from 0 to 6
+54s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-wfqxs
+54s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-4wkh4
+53s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-ptnrz          Successfully assigned default/scenario2-default-6bfffbdb8-ptnrz to energy-worker3
+53s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-5mkjb          Successfully assigned default/scenario2-default-6bfffbdb8-5mkjb to energy-worker
+54s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-5mkjb
+53s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-wzqwb          Successfully assigned default/scenario2-default-6bfffbdb8-wzqwb to energy-worker2
+54s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-wzqwb
+53s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-wfqxs          Successfully assigned default/scenario2-default-6bfffbdb8-wfqxs to energy-worker3
+53s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-wlkzc          Successfully assigned default/scenario2-default-6bfffbdb8-wlkzc to energy-worker
+54s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-ptnrz
+53s         Normal    Scheduled                 pod/scenario2-default-6bfffbdb8-4wkh4          Successfully assigned default/scenario2-default-6bfffbdb8-4wkh4 to energy-worker2
+54s         Normal    SuccessfulCreate          replicaset/scenario2-default-6bfffbdb8         Created pod: scenario2-default-6bfffbdb8-wlkzc
+53s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-wfqxs          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+53s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-4wkh4          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+53s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-5mkjb          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+53s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-wlkzc          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+53s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-ptnrz          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+53s         Normal    Created                   pod/scenario2-default-6bfffbdb8-5mkjb          Container created
+53s         Normal    Pulled                    pod/scenario2-default-6bfffbdb8-wzqwb          Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+52s         Normal    Created                   pod/scenario2-default-6bfffbdb8-4wkh4          Container created
+52s         Normal    Created                   pod/scenario2-default-6bfffbdb8-wzqwb          Container created
+52s         Normal    Started                   pod/scenario2-default-6bfffbdb8-wfqxs          Container started
+52s         Normal    Created                   pod/scenario2-default-6bfffbdb8-wfqxs          Container created
+52s         Normal    Started                   pod/scenario2-default-6bfffbdb8-ptnrz          Container started
+52s         Normal    Started                   pod/scenario2-default-6bfffbdb8-4wkh4          Container started
+52s         Normal    Created                   pod/scenario2-default-6bfffbdb8-ptnrz          Container created
+52s         Normal    Created                   pod/scenario2-default-6bfffbdb8-wlkzc          Container created
+52s         Normal    Started                   pod/scenario2-default-6bfffbdb8-wlkzc          Container started
+52s         Normal    Started                   pod/scenario2-default-6bfffbdb8-wzqwb          Container started
+52s         Normal    Started                   pod/scenario2-default-6bfffbdb8-5mkjb          Container started
+34s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-ptnrz          Stopping container nginx
+34s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-4wkh4          Stopping container nginx
+34s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-wlkzc          Stopping container nginx
+34s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-wfqxs          Stopping container nginx
+34s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-5mkjb          Stopping container nginx
+34s         Normal    Killing                   pod/scenario2-default-6bfffbdb8-wzqwb          Stopping container nginx
+20s         Normal    ScalingReplicaSet         deployment/scenario2-energy-aware              Scaled up replica set scenario2-energy-aware-6d8449555b from 0 to 6
+20s         Normal    SuccessfulCreate          replicaset/scenario2-energy-aware-6d8449555b   Created pod: scenario2-energy-aware-6d8449555b-4bpzs
+19s         Normal    SuccessfulCreate          replicaset/scenario2-energy-aware-6d8449555b   Created pod: scenario2-energy-aware-6d8449555b-45qnf
+19s         Normal    SuccessfulCreate          replicaset/scenario2-energy-aware-6d8449555b   Created pod: scenario2-energy-aware-6d8449555b-vlwzz
+19s         Normal    SuccessfulCreate          replicaset/scenario2-energy-aware-6d8449555b   Created pod: scenario2-energy-aware-6d8449555b-r78nb
+19s         Normal    SuccessfulCreate          replicaset/scenario2-energy-aware-6d8449555b   Created pod: scenario2-energy-aware-6d8449555b-n82kr
+19s         Normal    SuccessfulCreate          replicaset/scenario2-energy-aware-6d8449555b   Created pod: scenario2-energy-aware-6d8449555b-42ljj
+18s         Normal    Created                   pod/scenario2-energy-aware-6d8449555b-45qnf    Container created
+18s         Normal    Pulled                    pod/scenario2-energy-aware-6d8449555b-r78nb    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+18s         Normal    Pulled                    pod/scenario2-energy-aware-6d8449555b-45qnf    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+18s         Normal    Pulled                    pod/scenario2-energy-aware-6d8449555b-4bpzs    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+18s         Normal    Started                   pod/scenario2-energy-aware-6d8449555b-4bpzs    Container started
+18s         Normal    Created                   pod/scenario2-energy-aware-6d8449555b-4bpzs    Container created
+17s         Normal    Pulled                    pod/scenario2-energy-aware-6d8449555b-42ljj    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+17s         Normal    Started                   pod/scenario2-energy-aware-6d8449555b-vlwzz    Container started
+17s         Normal    Created                   pod/scenario2-energy-aware-6d8449555b-vlwzz    Container created
+17s         Normal    Pulled                    pod/scenario2-energy-aware-6d8449555b-vlwzz    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+17s         Normal    Started                   pod/scenario2-energy-aware-6d8449555b-r78nb    Container started
+17s         Normal    Created                   pod/scenario2-energy-aware-6d8449555b-r78nb    Container created
+17s         Normal    Created                   pod/scenario2-energy-aware-6d8449555b-n82kr    Container created
+17s         Normal    Pulled                    pod/scenario2-energy-aware-6d8449555b-n82kr    Container image "nginx:1.25-alpine" already present on machine and can be accessed by the pod
+17s         Normal    Started                   pod/scenario2-energy-aware-6d8449555b-45qnf    Container started
+16s         Normal    Started                   pod/scenario2-energy-aware-6d8449555b-n82kr    Container started
+16s         Normal    Started                   pod/scenario2-energy-aware-6d8449555b-42ljj    Container started
+16s         Normal    Created                   pod/scenario2-energy-aware-6d8449555b-42ljj    Container created

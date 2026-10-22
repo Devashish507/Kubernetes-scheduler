@@ -1,0 +1,4369 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-control-plane"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:58Z",
+            "message": "Starting kubelet.",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:42Z",
+                "name": "energy-control-plane.18df9b3be8630903",
+                "namespace": "default",
+                "resourceVersion": "27416",
+                "uid": "4f6434ee-99ef-45f0-8c73-390db894f077"
+            },
+            "reason": "Starting",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-control-plane",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 8,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-control-plane"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:59Z",
+            "message": "Node energy-control-plane status is now: NodeHasSufficientMemory",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:42Z",
+                "name": "energy-control-plane.18df9b3becf95fc4",
+                "namespace": "default",
+                "resourceVersion": "27439",
+                "uid": "431c45b3-b501-4895-bd1c-7623611540b2"
+            },
+            "reason": "NodeHasSufficientMemory",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-control-plane",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 8,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-control-plane"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:59Z",
+            "message": "Node energy-control-plane status is now: NodeHasNoDiskPressure",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:42Z",
+                "name": "energy-control-plane.18df9b3becfa8e2e",
+                "namespace": "default",
+                "resourceVersion": "27440",
+                "uid": "31fcd5f8-af9f-4b24-ad14-a75c43394a2c"
+            },
+            "reason": "NodeHasNoDiskPressure",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-control-plane",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 7,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-control-plane"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:59Z",
+            "message": "Node energy-control-plane status is now: NodeHasSufficientPID",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:42Z",
+                "name": "energy-control-plane.18df9b3becfb0045",
+                "namespace": "default",
+                "resourceVersion": "27438",
+                "uid": "7c19f580-a63f-40e2-8705-df933786afce"
+            },
+            "reason": "NodeHasSufficientPID",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-control-plane",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-control-plane"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:58Z",
+            "message": "Updated Node Allocatable limit across pods",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:42Z",
+                "name": "energy-control-plane.18df9b3bfcf69898",
+                "namespace": "default",
+                "resourceVersion": "27423",
+                "uid": "472d0167-c85d-47d1-8385-b464a037614c"
+            },
+            "reason": "NodeAllocatableEnforced",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-control-plane",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:11:41Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-control-plane"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:41Z",
+            "message": "Node energy-control-plane has been rebooted, boot id: 4bef1413-89c4-4f2b-b41e-8a0ecbd733a6",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:43Z",
+                "name": "energy-control-plane.18df9b45ddedca2a",
+                "namespace": "default",
+                "resourceVersion": "27455",
+                "uid": "13199490-cc57-45f6-a6ef-8d557c3fd2dc"
+            },
+            "reason": "Rebooted",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-control-plane",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-control-plane"
+            },
+            "type": "Warning"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:12:03Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-control-plane",
+                "uid": "fd5f31f1-8990-49fe-8b4f-533e6b8f7f9c"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:12:03Z",
+            "message": "Node energy-control-plane event: Registered Node energy-control-plane in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:12:03Z",
+                "name": "energy-control-plane.18df9b4afd101c84",
+                "namespace": "default",
+                "resourceVersion": "27579",
+                "uid": "3b0d39d3-0ad1-4c16-8a9e-b09fcd88eb04"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "StartKubeProxy",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T11:12:12.506502Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-control-plane"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:12:12Z",
+                "name": "energy-control-plane.18df9b4d2e311d88",
+                "namespace": "default",
+                "resourceVersion": "27672",
+                "uid": "8b17e6e9-0be9-4d54-9bde-76c98284ba12"
+            },
+            "reason": "Starting",
+            "reportingComponent": "kube-proxy",
+            "reportingInstance": "kube-proxy-energy-control-plane",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:52:29Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-control-plane",
+                "uid": "fd5f31f1-8990-49fe-8b4f-533e6b8f7f9c"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:52:29Z",
+            "message": "Node energy-control-plane event: Registered Node energy-control-plane in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:52:29Z",
+                "name": "energy-control-plane.18df9d7fe63ba131",
+                "namespace": "default",
+                "resourceVersion": "33190",
+                "uid": "d3784514-7596-4f49-a291-787c11b5f2bd"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:53:38Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-control-plane",
+                "uid": "fd5f31f1-8990-49fe-8b4f-533e6b8f7f9c"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:53:38Z",
+            "message": "Node energy-control-plane event: Registered Node energy-control-plane in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:53:38Z",
+                "name": "energy-control-plane.18df9d90110475bb",
+                "namespace": "default",
+                "resourceVersion": "33332",
+                "uid": "d36ee0f9-13ed-45ae-afd6-92edfafac67d"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:58Z",
+            "message": "Starting kubelet.",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:46Z",
+                "name": "energy-worker.18df9b3be8f16eb4",
+                "namespace": "default",
+                "resourceVersion": "27456",
+                "uid": "cfb026b1-8858-427e-b27b-b555860efca8"
+            },
+            "reason": "Starting",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 8,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:01Z",
+            "message": "Node energy-worker status is now: NodeHasSufficientMemory",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:46Z",
+                "name": "energy-worker.18df9b3bed0f188f",
+                "namespace": "default",
+                "resourceVersion": "27495",
+                "uid": "0b623631-da2d-43c8-8526-84b0cb3feb30"
+            },
+            "reason": "NodeHasSufficientMemory",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 8,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:01Z",
+            "message": "Node energy-worker status is now: NodeHasNoDiskPressure",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:46Z",
+                "name": "energy-worker.18df9b3bed0fba33",
+                "namespace": "default",
+                "resourceVersion": "27497",
+                "uid": "b521c015-d936-40d0-a642-ca40b79b557a"
+            },
+            "reason": "NodeHasNoDiskPressure",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 7,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:00Z",
+            "message": "Node energy-worker status is now: NodeHasSufficientPID",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:46Z",
+                "name": "energy-worker.18df9b3bed103983",
+                "namespace": "default",
+                "resourceVersion": "27493",
+                "uid": "23a6a856-bd61-4e82-80d7-3f11d23d1ed5"
+            },
+            "reason": "NodeHasSufficientPID",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:58Z",
+            "message": "Updated Node Allocatable limit across pods",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:46Z",
+                "name": "energy-worker.18df9b3bfd5037f5",
+                "namespace": "default",
+                "resourceVersion": "27463",
+                "uid": "19e592d2-e9b3-4056-a83c-231defd26c24"
+            },
+            "reason": "NodeAllocatableEnforced",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:11:41Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:41Z",
+            "message": "Node energy-worker has been rebooted, boot id: 4bef1413-89c4-4f2b-b41e-8a0ecbd733a6",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:47Z",
+                "name": "energy-worker.18df9b45ddeb8af4",
+                "namespace": "default",
+                "resourceVersion": "27499",
+                "uid": "afb25a07-771d-4a08-a021-473fb6b90df2"
+            },
+            "reason": "Rebooted",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Warning"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:12:03Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker",
+                "uid": "e8eaf6a5-e094-4009-9072-012a8ff537a4"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:12:03Z",
+            "message": "Node energy-worker event: Registered Node energy-worker in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:12:03Z",
+                "name": "energy-worker.18df9b4afd10381e",
+                "namespace": "default",
+                "resourceVersion": "27581",
+                "uid": "b6b5d174-378e-4c03-a561-91964c545608"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "StartKubeProxy",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T11:12:15.444903Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:12:15Z",
+                "name": "energy-worker.18df9b4ddd558b2c",
+                "namespace": "default",
+                "resourceVersion": "27784",
+                "uid": "b0bbebd7-7e44-49b7-a62d-7645baf2643c"
+            },
+            "reason": "Starting",
+            "reportingComponent": "kube-proxy",
+            "reportingInstance": "kube-proxy-energy-worker",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:52:29Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker",
+                "uid": "e8eaf6a5-e094-4009-9072-012a8ff537a4"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:52:29Z",
+            "message": "Node energy-worker event: Registered Node energy-worker in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:52:29Z",
+                "name": "energy-worker.18df9d7fe62f919d",
+                "namespace": "default",
+                "resourceVersion": "33187",
+                "uid": "bfcfdc96-5b50-4fb3-ba92-ce9d75b77b7c"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:53:38Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker",
+                "uid": "e8eaf6a5-e094-4009-9072-012a8ff537a4"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:53:38Z",
+            "message": "Node energy-worker event: Registered Node energy-worker in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:53:38Z",
+                "name": "energy-worker.18df9d9011069051",
+                "namespace": "default",
+                "resourceVersion": "33333",
+                "uid": "257da07e-1dd0-478f-8e1a-2d2aa15c6745"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker2"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:58Z",
+            "message": "Starting kubelet.",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:46Z",
+                "name": "energy-worker2.18df9b3bea0034ab",
+                "namespace": "default",
+                "resourceVersion": "27466",
+                "uid": "6e6b47f4-6b26-4ae9-80b1-d41717ce961a"
+            },
+            "reason": "Starting",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 8,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker2"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:01Z",
+            "message": "Node energy-worker2 status is now: NodeHasSufficientMemory",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:46Z",
+                "name": "energy-worker2.18df9b3bef821572",
+                "namespace": "default",
+                "resourceVersion": "27505",
+                "uid": "ad5ef391-59f2-4fd1-bdce-d7b0c166fd64"
+            },
+            "reason": "NodeHasSufficientMemory",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 8,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker2"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:01Z",
+            "message": "Node energy-worker2 status is now: NodeHasNoDiskPressure",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:46Z",
+                "name": "energy-worker2.18df9b3bef824908",
+                "namespace": "default",
+                "resourceVersion": "27506",
+                "uid": "50bca8ec-4906-4b69-affc-6264873b7ba1"
+            },
+            "reason": "NodeHasNoDiskPressure",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 7,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker2"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:00Z",
+            "message": "Node energy-worker2 status is now: NodeHasSufficientPID",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:46Z",
+                "name": "energy-worker2.18df9b3bef82e894",
+                "namespace": "default",
+                "resourceVersion": "27504",
+                "uid": "eb448dec-b26e-4860-9c5b-17da766b8d32"
+            },
+            "reason": "NodeHasSufficientPID",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker2"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:58Z",
+            "message": "Updated Node Allocatable limit across pods",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:46Z",
+                "name": "energy-worker2.18df9b3bfde086af",
+                "namespace": "default",
+                "resourceVersion": "27478",
+                "uid": "66374c72-248b-40aa-b954-a5553be24916"
+            },
+            "reason": "NodeAllocatableEnforced",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:11:41Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker2"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:41Z",
+            "message": "Node energy-worker2 has been rebooted, boot id: 4bef1413-89c4-4f2b-b41e-8a0ecbd733a6",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:47Z",
+                "name": "energy-worker2.18df9b45ddf25d2d",
+                "namespace": "default",
+                "resourceVersion": "27507",
+                "uid": "ee213e63-34a0-4fbb-9c05-64f5f889fe7b"
+            },
+            "reason": "Rebooted",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Warning"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:12:03Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker2",
+                "uid": "dde0b2b6-3b06-423b-a2ad-80ae9efe9611"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:12:03Z",
+            "message": "Node energy-worker2 event: Registered Node energy-worker2 in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:12:03Z",
+                "name": "energy-worker2.18df9b4afd093bad",
+                "namespace": "default",
+                "resourceVersion": "27577",
+                "uid": "2c77c8a5-c0db-4d71-aadd-1c02b2c541bc"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "StartKubeProxy",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T11:12:03.105421Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker2"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:12:03Z",
+                "name": "energy-worker2.18df9b4afdd7fc14",
+                "namespace": "default",
+                "resourceVersion": "27580",
+                "uid": "981172bd-389b-437c-b5dc-b9f44e00a544"
+            },
+            "reason": "Starting",
+            "reportingComponent": "kube-proxy",
+            "reportingInstance": "kube-proxy-energy-worker2",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:52:29Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker2",
+                "uid": "dde0b2b6-3b06-423b-a2ad-80ae9efe9611"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:52:29Z",
+            "message": "Node energy-worker2 event: Registered Node energy-worker2 in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:52:29Z",
+                "name": "energy-worker2.18df9d7fe63b2f08",
+                "namespace": "default",
+                "resourceVersion": "33188",
+                "uid": "c0f3b08b-8366-4d64-aa3d-760fb1fd86b7"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:53:38Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker2",
+                "uid": "dde0b2b6-3b06-423b-a2ad-80ae9efe9611"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:53:38Z",
+            "message": "Node energy-worker2 event: Registered Node energy-worker2 in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:53:38Z",
+                "name": "energy-worker2.18df9d901106b709",
+                "namespace": "default",
+                "resourceVersion": "33334",
+                "uid": "a3c348b7-c639-4c5c-978a-8a2cd2072652"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker3"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:58Z",
+            "message": "Starting kubelet.",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:41Z",
+                "name": "energy-worker3.18df9b3be7e481e8",
+                "namespace": "default",
+                "resourceVersion": "27390",
+                "uid": "509ef8d7-ece9-4a6e-82fd-bb37256033fd"
+            },
+            "reason": "Starting",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 8,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker3"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:01Z",
+            "message": "Node energy-worker3 status is now: NodeHasSufficientMemory",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:41Z",
+                "name": "energy-worker3.18df9b3bed9f3b8c",
+                "namespace": "default",
+                "resourceVersion": "27413",
+                "uid": "21b0656d-d2ef-4670-b27d-092f8a644a40"
+            },
+            "reason": "NodeHasSufficientMemory",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 8,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker3"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:01Z",
+            "message": "Node energy-worker3 status is now: NodeHasNoDiskPressure",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:41Z",
+                "name": "energy-worker3.18df9b3bed9f71de",
+                "namespace": "default",
+                "resourceVersion": "27414",
+                "uid": "8c0b5b4b-7f84-462f-835b-08bc5d494b88"
+            },
+            "reason": "NodeHasNoDiskPressure",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 7,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker3"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:00Z",
+            "message": "Node energy-worker3 status is now: NodeHasSufficientPID",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:42Z",
+                "name": "energy-worker3.18df9b3bed9f91ff",
+                "namespace": "default",
+                "resourceVersion": "27412",
+                "uid": "f6c36fc1-914c-4ab8-b0bb-7a2b59fada5b"
+            },
+            "reason": "NodeHasSufficientPID",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:10:58Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker3"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:10:58Z",
+            "message": "Updated Node Allocatable limit across pods",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:42Z",
+                "name": "energy-worker3.18df9b3bfc057206",
+                "namespace": "default",
+                "resourceVersion": "27397",
+                "uid": "d4bd9130-0cf4-4f64-9ba9-7666d7576f91"
+            },
+            "reason": "NodeAllocatableEnforced",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:11:41Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker3"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:11:41Z",
+            "message": "Node energy-worker3 has been rebooted, boot id: 4bef1413-89c4-4f2b-b41e-8a0ecbd733a6",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:11:42Z",
+                "name": "energy-worker3.18df9b45dde23a46",
+                "namespace": "default",
+                "resourceVersion": "27415",
+                "uid": "1f2a997a-16da-483e-99af-40bd87f223c9"
+            },
+            "reason": "Rebooted",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Warning"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:12:03Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker3",
+                "uid": "c04bc207-77f0-43c6-9ee0-cd6e12b0338d"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:12:03Z",
+            "message": "Node energy-worker3 event: Registered Node energy-worker3 in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:12:03Z",
+                "name": "energy-worker3.18df9b4afd0fe6dd",
+                "namespace": "default",
+                "resourceVersion": "27578",
+                "uid": "9bac1079-c12b-4070-8059-f41210bd0320"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "StartKubeProxy",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T11:12:18.075831Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker3"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:12:18Z",
+                "name": "energy-worker3.18df9b4e7a2657f4",
+                "namespace": "default",
+                "resourceVersion": "27874",
+                "uid": "ec47f292-c547-4567-b395-f9e08cfd887a"
+            },
+            "reason": "Starting",
+            "reportingComponent": "kube-proxy",
+            "reportingInstance": "kube-proxy-energy-worker3",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:52:29Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker3",
+                "uid": "c04bc207-77f0-43c6-9ee0-cd6e12b0338d"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:52:29Z",
+            "message": "Node energy-worker3 event: Registered Node energy-worker3 in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:52:29Z",
+                "name": "energy-worker3.18df9d7fe63b76ec",
+                "namespace": "default",
+                "resourceVersion": "33189",
+                "uid": "a4f34597-b7b2-42e7-899c-f2a3c06aa6c2"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:53:38Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Node",
+                "name": "energy-worker3",
+                "uid": "c04bc207-77f0-43c6-9ee0-cd6e12b0338d"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:53:38Z",
+            "message": "Node energy-worker3 event: Registered Node energy-worker3 in Controller",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:53:38Z",
+                "name": "energy-worker3.18df9d901106c1d5",
+                "namespace": "default",
+                "resourceVersion": "33335",
+                "uid": "8db9a05a-ec4c-40c6-98c1-a6862b649887"
+            },
+            "reason": "RegisteredNode",
+            "reportingComponent": "node-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "node-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:15Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "nginx-energy-aware-59b49947b5-9gmzq",
+                "namespace": "default",
+                "resourceVersion": "33459",
+                "uid": "c20a86ae-0ada-427f-b7d9-4db76d63dd26"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:15Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:15Z",
+                "name": "nginx-energy-aware-59b49947b5-9gmzq.18df9d98963c8141",
+                "namespace": "default",
+                "resourceVersion": "33470",
+                "uid": "da3930be-ba67-4148-8d3d-de548e4c3c35"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:15Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "nginx-energy-aware-59b49947b5-9gmzq",
+                "namespace": "default",
+                "resourceVersion": "33459",
+                "uid": "c20a86ae-0ada-427f-b7d9-4db76d63dd26"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:15Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:15Z",
+                "name": "nginx-energy-aware-59b49947b5-9gmzq.18df9d989e5a30b1",
+                "namespace": "default",
+                "resourceVersion": "33477",
+                "uid": "6ce92850-e48e-4a77-8f17-88f377561121"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:16Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "nginx-energy-aware-59b49947b5-9gmzq",
+                "namespace": "default",
+                "resourceVersion": "33459",
+                "uid": "c20a86ae-0ada-427f-b7d9-4db76d63dd26"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:16Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:16Z",
+                "name": "nginx-energy-aware-59b49947b5-9gmzq.18df9d98bd5bf7a5",
+                "namespace": "default",
+                "resourceVersion": "33483",
+                "uid": "0257d505-bfc8-494e-904e-a426751700cd"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:00:45Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "nginx-energy-aware-59b49947b5-9gmzq",
+                "namespace": "default",
+                "resourceVersion": "33459",
+                "uid": "c20a86ae-0ada-427f-b7d9-4db76d63dd26"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:00:45Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:00:45Z",
+                "name": "nginx-energy-aware-59b49947b5-9gmzq.18df9df371fc1c80",
+                "namespace": "default",
+                "resourceVersion": "34351",
+                "uid": "4e058ad3-6d52-4195-8273-95aeff61f906"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:15Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "nginx-energy-aware-59b49947b5-jkglj",
+                "namespace": "default",
+                "resourceVersion": "33458",
+                "uid": "8bf19c70-f7a1-469c-bdd3-790ddbd82152"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:15Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:15Z",
+                "name": "nginx-energy-aware-59b49947b5-jkglj.18df9d9891b0217e",
+                "namespace": "default",
+                "resourceVersion": "33468",
+                "uid": "7b1b12e9-f2db-4206-8bea-4374e19514d7"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:15Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "nginx-energy-aware-59b49947b5-jkglj",
+                "namespace": "default",
+                "resourceVersion": "33458",
+                "uid": "8bf19c70-f7a1-469c-bdd3-790ddbd82152"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:15Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:15Z",
+                "name": "nginx-energy-aware-59b49947b5-jkglj.18df9d989958e3a0",
+                "namespace": "default",
+                "resourceVersion": "33474",
+                "uid": "63f2bd43-34e3-4ec9-bc63-e4135799ae01"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:15Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "nginx-energy-aware-59b49947b5-jkglj",
+                "namespace": "default",
+                "resourceVersion": "33458",
+                "uid": "8bf19c70-f7a1-469c-bdd3-790ddbd82152"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:15Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:15Z",
+                "name": "nginx-energy-aware-59b49947b5-jkglj.18df9d98b375a389",
+                "namespace": "default",
+                "resourceVersion": "33479",
+                "uid": "65d046f0-31e2-4fc6-a4b2-e981da4886ee"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:00:45Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "nginx-energy-aware-59b49947b5-jkglj",
+                "namespace": "default",
+                "resourceVersion": "33458",
+                "uid": "8bf19c70-f7a1-469c-bdd3-790ddbd82152"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:00:45Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:00:45Z",
+                "name": "nginx-energy-aware-59b49947b5-jkglj.18df9df371fbbffe",
+                "namespace": "default",
+                "resourceVersion": "34350",
+                "uid": "57ab53cb-ae8b-4a20-928b-509127b8e080"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:14Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "nginx-energy-aware-59b49947b5",
+                "namespace": "default",
+                "resourceVersion": "33447",
+                "uid": "412e713e-02c6-4061-86b4-9b570b1ee4c5"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:14Z",
+            "message": "Created pod: nginx-energy-aware-59b49947b5-9gmzq",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:14Z",
+                "name": "nginx-energy-aware-59b49947b5.18df9d9859174d50",
+                "namespace": "default",
+                "resourceVersion": "33451",
+                "uid": "d66a1643-4b8c-4ec8-a8d1-6e3651055040"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:14Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "nginx-energy-aware-59b49947b5",
+                "namespace": "default",
+                "resourceVersion": "33447",
+                "uid": "412e713e-02c6-4061-86b4-9b570b1ee4c5"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:14Z",
+            "message": "Created pod: nginx-energy-aware-59b49947b5-jkglj",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:14Z",
+                "name": "nginx-energy-aware-59b49947b5.18df9d985a3d8cba",
+                "namespace": "default",
+                "resourceVersion": "33454",
+                "uid": "c0b0d52c-7ba2-4c40-a3d8-aca771ad347a"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:14Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "nginx-energy-aware",
+                "namespace": "default",
+                "resourceVersion": "33446",
+                "uid": "57af8cec-314d-4389-b4f1-f23899e614af"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:14Z",
+            "message": "Scaled up replica set nginx-energy-aware-59b49947b5 from 0 to 2",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:14Z",
+                "name": "nginx-energy-aware.18df9d9858158a45",
+                "namespace": "default",
+                "resourceVersion": "33448",
+                "uid": "893738cf-17ab-41e1-ad68-4f58e9112d74"
+            },
+            "reason": "ScalingReplicaSet",
+            "reportingComponent": "deployment-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "deployment-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T12:03:38.549928Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-6lv8d",
+                "namespace": "default",
+                "resourceVersion": "34749",
+                "uid": "bcdd581f-88db-49ad-a20c-dec60c93a71c"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned default/scenario1-default-697887f997-6lv8d to energy-worker3",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:38Z",
+                "name": "scenario1-default-697887f997-6lv8d.18df9e1bb4b76c98",
+                "namespace": "default",
+                "resourceVersion": "34759",
+                "uid": "2601a6e5-1201-44dd-9230-c5905338b692"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "default-scheduler",
+            "reportingInstance": "default-scheduler-energy-control-plane",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:39Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-6lv8d",
+                "namespace": "default",
+                "resourceVersion": "34757",
+                "uid": "bcdd581f-88db-49ad-a20c-dec60c93a71c"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:39Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:39Z",
+                "name": "scenario1-default-697887f997-6lv8d.18df9e1beeaa5ed0",
+                "namespace": "default",
+                "resourceVersion": "34766",
+                "uid": "2bbccebe-0746-474d-b7eb-ba95ae46b489"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:39Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-6lv8d",
+                "namespace": "default",
+                "resourceVersion": "34757",
+                "uid": "bcdd581f-88db-49ad-a20c-dec60c93a71c"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:39Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:39Z",
+                "name": "scenario1-default-697887f997-6lv8d.18df9e1bf0a8db81",
+                "namespace": "default",
+                "resourceVersion": "34768",
+                "uid": "63521be3-9584-49ef-b3d9-71619ec03949"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:40Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-6lv8d",
+                "namespace": "default",
+                "resourceVersion": "34757",
+                "uid": "bcdd581f-88db-49ad-a20c-dec60c93a71c"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:40Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:40Z",
+                "name": "scenario1-default-697887f997-6lv8d.18df9e1c10d31edb",
+                "namespace": "default",
+                "resourceVersion": "34773",
+                "uid": "4cafdedc-4813-4cbe-84bb-90b4df1e5c5c"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:53Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-6lv8d",
+                "namespace": "default",
+                "resourceVersion": "34757",
+                "uid": "bcdd581f-88db-49ad-a20c-dec60c93a71c"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:53Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:53Z",
+                "name": "scenario1-default-697887f997-6lv8d.18df9e1f2badb03c",
+                "namespace": "default",
+                "resourceVersion": "34810",
+                "uid": "bc439561-3fb8-4798-a504-579c525f73a2"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T12:08:08.021158Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-89gr9",
+                "namespace": "default",
+                "resourceVersion": "35467",
+                "uid": "241f46a6-8b77-4648-95df-76a8a11b18bf"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned default/scenario1-default-697887f997-89gr9 to energy-worker",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:08Z",
+                "name": "scenario1-default-697887f997-89gr9.18df9e5a727390a9",
+                "namespace": "default",
+                "resourceVersion": "35475",
+                "uid": "c1ee2cec-9eeb-4c85-b47d-45c8f91192dc"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "default-scheduler",
+            "reportingInstance": "default-scheduler-energy-control-plane",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:08Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-89gr9",
+                "namespace": "default",
+                "resourceVersion": "35470",
+                "uid": "241f46a6-8b77-4648-95df-76a8a11b18bf"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:08Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:08Z",
+                "name": "scenario1-default-697887f997-89gr9.18df9e5aa86a1cf4",
+                "namespace": "default",
+                "resourceVersion": "35485",
+                "uid": "a000d61e-c597-4ca5-99e8-12cb42ee9a88"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:08Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-89gr9",
+                "namespace": "default",
+                "resourceVersion": "35470",
+                "uid": "241f46a6-8b77-4648-95df-76a8a11b18bf"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:08Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:08Z",
+                "name": "scenario1-default-697887f997-89gr9.18df9e5aab4e6957",
+                "namespace": "default",
+                "resourceVersion": "35487",
+                "uid": "852660bb-eccf-491b-a115-4099d39019e3"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:09Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-89gr9",
+                "namespace": "default",
+                "resourceVersion": "35470",
+                "uid": "241f46a6-8b77-4648-95df-76a8a11b18bf"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:09Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:09Z",
+                "name": "scenario1-default-697887f997-89gr9.18df9e5ab9186ae6",
+                "namespace": "default",
+                "resourceVersion": "35492",
+                "uid": "66612808-18bd-4ad2-9d38-ace6e6d46199"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:29Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-89gr9",
+                "namespace": "default",
+                "resourceVersion": "35470",
+                "uid": "241f46a6-8b77-4648-95df-76a8a11b18bf"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:29Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:29Z",
+                "name": "scenario1-default-697887f997-89gr9.18df9e5f67532840",
+                "namespace": "default",
+                "resourceVersion": "35545",
+                "uid": "9d6f9a25-9a50-4296-a225-6955224cffff"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T12:08:08.014964Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-ft2br",
+                "namespace": "default",
+                "resourceVersion": "35466",
+                "uid": "bcf8a5a1-d616-4f30-a2ea-f2b7aca4a4df"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned default/scenario1-default-697887f997-ft2br to energy-worker3",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:08Z",
+                "name": "scenario1-default-697887f997-ft2br.18df9e5a72151a43",
+                "namespace": "default",
+                "resourceVersion": "35474",
+                "uid": "f8f2c84f-35cc-458c-b49c-4cb4f2b2af06"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "default-scheduler",
+            "reportingInstance": "default-scheduler-energy-control-plane",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:08Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-ft2br",
+                "namespace": "default",
+                "resourceVersion": "35469",
+                "uid": "bcf8a5a1-d616-4f30-a2ea-f2b7aca4a4df"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:08Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:08Z",
+                "name": "scenario1-default-697887f997-ft2br.18df9e5aa3af89cc",
+                "namespace": "default",
+                "resourceVersion": "35482",
+                "uid": "70548051-47e1-4e2c-b4dc-8f7c38777b77"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:08Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-ft2br",
+                "namespace": "default",
+                "resourceVersion": "35469",
+                "uid": "bcf8a5a1-d616-4f30-a2ea-f2b7aca4a4df"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:08Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:08Z",
+                "name": "scenario1-default-697887f997-ft2br.18df9e5aa4db4e5b",
+                "namespace": "default",
+                "resourceVersion": "35484",
+                "uid": "f964ec7b-aad3-403a-92a4-46702d2ad580"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:09Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-ft2br",
+                "namespace": "default",
+                "resourceVersion": "35469",
+                "uid": "bcf8a5a1-d616-4f30-a2ea-f2b7aca4a4df"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:09Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:09Z",
+                "name": "scenario1-default-697887f997-ft2br.18df9e5ab5db8ecc",
+                "namespace": "default",
+                "resourceVersion": "35488",
+                "uid": "cd9cef1f-9166-4ecd-ae40-91f078d639f9"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:29Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-ft2br",
+                "namespace": "default",
+                "resourceVersion": "35469",
+                "uid": "bcf8a5a1-d616-4f30-a2ea-f2b7aca4a4df"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:29Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:29Z",
+                "name": "scenario1-default-697887f997-ft2br.18df9e5f67d0e052",
+                "namespace": "default",
+                "resourceVersion": "35546",
+                "uid": "8008ab66-72b9-4434-baaf-aa22e4b3c511"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T12:07:33.535324Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-jqcc7",
+                "namespace": "default",
+                "resourceVersion": "35346",
+                "uid": "24543748-fcf6-46c7-920a-95f01135291b"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned default/scenario1-default-697887f997-jqcc7 to energy-worker3",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:33Z",
+                "name": "scenario1-default-697887f997-jqcc7.18df9e526aef9318",
+                "namespace": "default",
+                "resourceVersion": "35353",
+                "uid": "1233fa83-9779-4b2f-93e0-52fa3e863733"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "default-scheduler",
+            "reportingInstance": "default-scheduler-energy-control-plane",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:34Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-jqcc7",
+                "namespace": "default",
+                "resourceVersion": "35349",
+                "uid": "24543748-fcf6-46c7-920a-95f01135291b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:34Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:34Z",
+                "name": "scenario1-default-697887f997-jqcc7.18df9e52972aa4c1",
+                "namespace": "default",
+                "resourceVersion": "35364",
+                "uid": "9835cf85-06fc-4135-9d3e-c7fab5d5aa73"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:34Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-jqcc7",
+                "namespace": "default",
+                "resourceVersion": "35349",
+                "uid": "24543748-fcf6-46c7-920a-95f01135291b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:34Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:34Z",
+                "name": "scenario1-default-697887f997-jqcc7.18df9e52991f8994",
+                "namespace": "default",
+                "resourceVersion": "35366",
+                "uid": "3925fb95-d5bf-4cca-a96d-e7aa9d9ac26b"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:34Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-jqcc7",
+                "namespace": "default",
+                "resourceVersion": "35349",
+                "uid": "24543748-fcf6-46c7-920a-95f01135291b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:34Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:34Z",
+                "name": "scenario1-default-697887f997-jqcc7.18df9e52ac78f453",
+                "namespace": "default",
+                "resourceVersion": "35371",
+                "uid": "5dee0bda-261c-421e-9390-ce6b69992949"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:54Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-jqcc7",
+                "namespace": "default",
+                "resourceVersion": "35349",
+                "uid": "24543748-fcf6-46c7-920a-95f01135291b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:54Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:54Z",
+                "name": "scenario1-default-697887f997-jqcc7.18df9e575dcee2e1",
+                "namespace": "default",
+                "resourceVersion": "35424",
+                "uid": "cd08311c-2f7a-49d5-9f77-0c01411a3ef1"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T12:03:38.555274Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-l7czq",
+                "namespace": "default",
+                "resourceVersion": "34752",
+                "uid": "a6971de7-eb18-40ee-a59e-aa73faf96b54"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned default/scenario1-default-697887f997-l7czq to energy-worker",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:38Z",
+                "name": "scenario1-default-697887f997-l7czq.18df9e1bb5089668",
+                "namespace": "default",
+                "resourceVersion": "34760",
+                "uid": "c890530c-93ef-4e63-8e3a-f73e9a2e9b24"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "default-scheduler",
+            "reportingInstance": "default-scheduler-energy-control-plane",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:39Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-l7czq",
+                "namespace": "default",
+                "resourceVersion": "34758",
+                "uid": "a6971de7-eb18-40ee-a59e-aa73faf96b54"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:39Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:39Z",
+                "name": "scenario1-default-697887f997-l7czq.18df9e1be91be453",
+                "namespace": "default",
+                "resourceVersion": "34763",
+                "uid": "349acf59-562d-4781-bcb1-4101cf67bfc2"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:39Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-l7czq",
+                "namespace": "default",
+                "resourceVersion": "34758",
+                "uid": "a6971de7-eb18-40ee-a59e-aa73faf96b54"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:39Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:39Z",
+                "name": "scenario1-default-697887f997-l7czq.18df9e1beac94fb8",
+                "namespace": "default",
+                "resourceVersion": "34765",
+                "uid": "1ad1df1b-e066-424b-8674-11fbad23c4a7"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:40Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-l7czq",
+                "namespace": "default",
+                "resourceVersion": "34758",
+                "uid": "a6971de7-eb18-40ee-a59e-aa73faf96b54"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:40Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:40Z",
+                "name": "scenario1-default-697887f997-l7czq.18df9e1c0c9ec2d9",
+                "namespace": "default",
+                "resourceVersion": "34769",
+                "uid": "a6a00517-d187-428f-bb59-26c97a7f85a5"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:53Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-l7czq",
+                "namespace": "default",
+                "resourceVersion": "34758",
+                "uid": "a6971de7-eb18-40ee-a59e-aa73faf96b54"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:53Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:53Z",
+                "name": "scenario1-default-697887f997-l7czq.18df9e1f2db46f9e",
+                "namespace": "default",
+                "resourceVersion": "34812",
+                "uid": "fc67f328-ba07-4b20-a6fa-dfb60b3a2e8e"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T12:06:58.594990Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-rlvc6",
+                "namespace": "default",
+                "resourceVersion": "35220",
+                "uid": "e2834fe8-bc07-46ab-b29a-dc6bbb8f6418"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned default/scenario1-default-697887f997-rlvc6 to energy-worker",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:58Z",
+                "name": "scenario1-default-697887f997-rlvc6.18df9e4a485466aa",
+                "namespace": "default",
+                "resourceVersion": "35228",
+                "uid": "cc34f8d9-ce54-4241-9f91-f0b2431e7843"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "default-scheduler",
+            "reportingInstance": "default-scheduler-energy-control-plane",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:06:59Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-rlvc6",
+                "namespace": "default",
+                "resourceVersion": "35224",
+                "uid": "e2834fe8-bc07-46ab-b29a-dc6bbb8f6418"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:06:59Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:59Z",
+                "name": "scenario1-default-697887f997-rlvc6.18df9e4a7a0b5e9b",
+                "namespace": "default",
+                "resourceVersion": "35238",
+                "uid": "4ffc6690-5560-4852-b803-924b0fa93901"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:06:59Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-rlvc6",
+                "namespace": "default",
+                "resourceVersion": "35224",
+                "uid": "e2834fe8-bc07-46ab-b29a-dc6bbb8f6418"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:06:59Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:59Z",
+                "name": "scenario1-default-697887f997-rlvc6.18df9e4a7b5d808a",
+                "namespace": "default",
+                "resourceVersion": "35240",
+                "uid": "cd3ab01e-154b-42fb-b9ec-aadb96978d1b"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:06:59Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-rlvc6",
+                "namespace": "default",
+                "resourceVersion": "35224",
+                "uid": "e2834fe8-bc07-46ab-b29a-dc6bbb8f6418"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:06:59Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:59Z",
+                "name": "scenario1-default-697887f997-rlvc6.18df9e4a917bb781",
+                "namespace": "default",
+                "resourceVersion": "35246",
+                "uid": "b15ed4b9-21b5-4d18-899e-7f97bc7e2fc0"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:19Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-rlvc6",
+                "namespace": "default",
+                "resourceVersion": "35224",
+                "uid": "e2834fe8-bc07-46ab-b29a-dc6bbb8f6418"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:19Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:19Z",
+                "name": "scenario1-default-697887f997-rlvc6.18df9e4f40ca6a6b",
+                "namespace": "default",
+                "resourceVersion": "35300",
+                "uid": "6e655ccd-11d9-4b58-b677-a182a7b426ec"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T12:06:58.600416Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-s7mgt",
+                "namespace": "default",
+                "resourceVersion": "35222",
+                "uid": "d98b0ce5-f093-48b2-9d9a-1a3e19789915"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned default/scenario1-default-697887f997-s7mgt to energy-worker3",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:58Z",
+                "name": "scenario1-default-697887f997-s7mgt.18df9e4a48a719ae",
+                "namespace": "default",
+                "resourceVersion": "35229",
+                "uid": "9962ce6e-d908-4f02-afba-dbd1303afe30"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "default-scheduler",
+            "reportingInstance": "default-scheduler-energy-control-plane",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:06:59Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-s7mgt",
+                "namespace": "default",
+                "resourceVersion": "35227",
+                "uid": "d98b0ce5-f093-48b2-9d9a-1a3e19789915"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:06:59Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:59Z",
+                "name": "scenario1-default-697887f997-s7mgt.18df9e4a758d10c2",
+                "namespace": "default",
+                "resourceVersion": "35235",
+                "uid": "12a82591-d1d8-4bd0-abd0-0c1618562d7c"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:06:59Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-s7mgt",
+                "namespace": "default",
+                "resourceVersion": "35227",
+                "uid": "d98b0ce5-f093-48b2-9d9a-1a3e19789915"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:06:59Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:59Z",
+                "name": "scenario1-default-697887f997-s7mgt.18df9e4a770216db",
+                "namespace": "default",
+                "resourceVersion": "35237",
+                "uid": "facd29f3-36de-49d3-aa1f-2d472b68a5af"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:06:59Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-s7mgt",
+                "namespace": "default",
+                "resourceVersion": "35227",
+                "uid": "d98b0ce5-f093-48b2-9d9a-1a3e19789915"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:06:59Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:59Z",
+                "name": "scenario1-default-697887f997-s7mgt.18df9e4a88b8a8ff",
+                "namespace": "default",
+                "resourceVersion": "35241",
+                "uid": "7fc0cc4b-5dea-4b82-a28d-c5a865ad2fe9"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:19Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-s7mgt",
+                "namespace": "default",
+                "resourceVersion": "35227",
+                "uid": "d98b0ce5-f093-48b2-9d9a-1a3e19789915"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:19Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:19Z",
+                "name": "scenario1-default-697887f997-s7mgt.18df9e4f412d99a1",
+                "namespace": "default",
+                "resourceVersion": "35301",
+                "uid": "e2bb86ec-ba55-4e6e-b89c-9cba486a61d7"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-10-18T12:07:33.523821Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-stw6t",
+                "namespace": "default",
+                "resourceVersion": "35343",
+                "uid": "4360bc13-69ab-423f-9773-24268e3ac8d3"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned default/scenario1-default-697887f997-stw6t to energy-worker",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:33Z",
+                "name": "scenario1-default-697887f997-stw6t.18df9e526a40025f",
+                "namespace": "default",
+                "resourceVersion": "35351",
+                "uid": "45b0e47d-9d9e-4a4c-958a-70654377613b"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "default-scheduler",
+            "reportingInstance": "default-scheduler-energy-control-plane",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:34Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-stw6t",
+                "namespace": "default",
+                "resourceVersion": "35347",
+                "uid": "4360bc13-69ab-423f-9773-24268e3ac8d3"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:34Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:34Z",
+                "name": "scenario1-default-697887f997-stw6t.18df9e5291c54cf3",
+                "namespace": "default",
+                "resourceVersion": "35361",
+                "uid": "915d985a-3c96-4a2a-9bcf-7d646b8a35dd"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:34Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-stw6t",
+                "namespace": "default",
+                "resourceVersion": "35347",
+                "uid": "4360bc13-69ab-423f-9773-24268e3ac8d3"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:34Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:34Z",
+                "name": "scenario1-default-697887f997-stw6t.18df9e5293484003",
+                "namespace": "default",
+                "resourceVersion": "35363",
+                "uid": "7a847483-f19d-4047-9917-249c1b981ae3"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:34Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-stw6t",
+                "namespace": "default",
+                "resourceVersion": "35347",
+                "uid": "4360bc13-69ab-423f-9773-24268e3ac8d3"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:34Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:34Z",
+                "name": "scenario1-default-697887f997-stw6t.18df9e52a069dd56",
+                "namespace": "default",
+                "resourceVersion": "35367",
+                "uid": "365dfc3c-8f45-4877-97f0-596e521516b6"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:54Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-default-697887f997-stw6t",
+                "namespace": "default",
+                "resourceVersion": "35347",
+                "uid": "4360bc13-69ab-423f-9773-24268e3ac8d3"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:54Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:54Z",
+                "name": "scenario1-default-697887f997-stw6t.18df9e575dc110d8",
+                "namespace": "default",
+                "resourceVersion": "35423",
+                "uid": "4f8c0b40-b45f-4025-94b3-95dd66326b39"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:38Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-default-697887f997",
+                "namespace": "default",
+                "resourceVersion": "34746",
+                "uid": "31bafc17-e65a-40a0-b057-edd617938dca"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:38Z",
+            "message": "Created pod: scenario1-default-697887f997-6lv8d",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:38Z",
+                "name": "scenario1-default-697887f997.18df9e1bb1791ee6",
+                "namespace": "default",
+                "resourceVersion": "34751",
+                "uid": "c97f7ff2-4088-4425-a927-081b413c4877"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:38Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-default-697887f997",
+                "namespace": "default",
+                "resourceVersion": "34746",
+                "uid": "31bafc17-e65a-40a0-b057-edd617938dca"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:38Z",
+            "message": "Created pod: scenario1-default-697887f997-l7czq",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:38Z",
+                "name": "scenario1-default-697887f997.18df9e1bb248aa46",
+                "namespace": "default",
+                "resourceVersion": "34753",
+                "uid": "d172e2e9-5512-41eb-a15c-afe68a27e68f"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:06:58Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-default-697887f997",
+                "namespace": "default",
+                "resourceVersion": "35217",
+                "uid": "1d58063f-a70d-4294-a741-9ef59f873cf9"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:06:58Z",
+            "message": "Created pod: scenario1-default-697887f997-rlvc6",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:58Z",
+                "name": "scenario1-default-697887f997.18df9e4a47617e5e",
+                "namespace": "default",
+                "resourceVersion": "35221",
+                "uid": "3ea37296-c260-4762-b1a0-3b48776a0640"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:06:58Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-default-697887f997",
+                "namespace": "default",
+                "resourceVersion": "35217",
+                "uid": "1d58063f-a70d-4294-a741-9ef59f873cf9"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:06:58Z",
+            "message": "Created pod: scenario1-default-697887f997-s7mgt",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:58Z",
+                "name": "scenario1-default-697887f997.18df9e4a48000f4f",
+                "namespace": "default",
+                "resourceVersion": "35225",
+                "uid": "caf07dbc-80ee-4606-a3d6-6f7bddbb943f"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:33Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-default-697887f997",
+                "namespace": "default",
+                "resourceVersion": "35341",
+                "uid": "3325990e-388f-48aa-b239-44aaa53b094a"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:33Z",
+            "message": "Created pod: scenario1-default-697887f997-stw6t",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:33Z",
+                "name": "scenario1-default-697887f997.18df9e5269531162",
+                "namespace": "default",
+                "resourceVersion": "35345",
+                "uid": "6b2f7053-117d-4248-b0de-18317f9eb307"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:33Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-default-697887f997",
+                "namespace": "default",
+                "resourceVersion": "35341",
+                "uid": "3325990e-388f-48aa-b239-44aaa53b094a"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:33Z",
+            "message": "Created pod: scenario1-default-697887f997-jqcc7",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:33Z",
+                "name": "scenario1-default-697887f997.18df9e526a0d8f4f",
+                "namespace": "default",
+                "resourceVersion": "35348",
+                "uid": "46235b70-dbff-4c0d-aeec-cf0c312be397"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:08Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-default-697887f997",
+                "namespace": "default",
+                "resourceVersion": "35463",
+                "uid": "6470888a-7044-40ca-ad11-5b805a28f318"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:08Z",
+            "message": "Created pod: scenario1-default-697887f997-ft2br",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:08Z",
+                "name": "scenario1-default-697887f997.18df9e5a7150bd68",
+                "namespace": "default",
+                "resourceVersion": "35468",
+                "uid": "1143ccbd-fdef-46f5-9b7b-2bcad80aa0b7"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:08Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-default-697887f997",
+                "namespace": "default",
+                "resourceVersion": "35463",
+                "uid": "6470888a-7044-40ca-ad11-5b805a28f318"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:08Z",
+            "message": "Created pod: scenario1-default-697887f997-89gr9",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:08Z",
+                "name": "scenario1-default-697887f997.18df9e5a71bdd197",
+                "namespace": "default",
+                "resourceVersion": "35473",
+                "uid": "1b72f112-ee3e-449b-8938-4e1c38a84c7d"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:03:38Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "scenario1-default",
+                "namespace": "default",
+                "resourceVersion": "34745",
+                "uid": "31e25f07-16db-4f68-a421-aa8d9f883a09"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:03:38Z",
+            "message": "Scaled up replica set scenario1-default-697887f997 from 0 to 2",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:03:38Z",
+                "name": "scenario1-default.18df9e1bafdc5177",
+                "namespace": "default",
+                "resourceVersion": "34748",
+                "uid": "65ddb1d1-6a92-4db7-a9d0-411b5ffabf5c"
+            },
+            "reason": "ScalingReplicaSet",
+            "reportingComponent": "deployment-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "deployment-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:06:58Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "scenario1-default",
+                "namespace": "default",
+                "resourceVersion": "35216",
+                "uid": "9da5ffcf-95bd-4ea4-a86f-ffdcb2aaf2fd"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:06:58Z",
+            "message": "Scaled up replica set scenario1-default-697887f997 from 0 to 2",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:06:58Z",
+                "name": "scenario1-default.18df9e4a46db96e4",
+                "namespace": "default",
+                "resourceVersion": "35219",
+                "uid": "ba434432-7e14-4351-8164-3967b6a4cc95"
+            },
+            "reason": "ScalingReplicaSet",
+            "reportingComponent": "deployment-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "deployment-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:07:33Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "scenario1-default",
+                "namespace": "default",
+                "resourceVersion": "35340",
+                "uid": "91c7fd0d-5f2a-432e-8f5d-5a64afa5ef23"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:07:33Z",
+            "message": "Scaled up replica set scenario1-default-697887f997 from 0 to 2",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:07:33Z",
+                "name": "scenario1-default.18df9e5268af7383",
+                "namespace": "default",
+                "resourceVersion": "35342",
+                "uid": "ae31ee93-bf78-4182-b835-9900beaedf78"
+            },
+            "reason": "ScalingReplicaSet",
+            "reportingComponent": "deployment-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "deployment-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:07Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "scenario1-default",
+                "namespace": "default",
+                "resourceVersion": "35462",
+                "uid": "09d1a0c4-3b5c-4937-9ac4-78fade023068"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:07Z",
+            "message": "Scaled up replica set scenario1-default-697887f997 from 0 to 2",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:07Z",
+                "name": "scenario1-default.18df9e5a708aa059",
+                "namespace": "default",
+                "resourceVersion": "35465",
+                "uid": "37c9dccc-e2fb-4190-981e-7c4a49bb580b"
+            },
+            "reason": "ScalingReplicaSet",
+            "reportingComponent": "deployment-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "deployment-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:44Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-2xlfs",
+                "namespace": "default",
+                "resourceVersion": "35600",
+                "uid": "3a921af6-cd4b-4020-a5aa-f5c26ae064bc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:44Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:44Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-2xlfs.18df9e6302b9489a",
+                "namespace": "default",
+                "resourceVersion": "35611",
+                "uid": "f08b3134-f400-4f8f-90c1-d6ded140a077"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:44Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-2xlfs",
+                "namespace": "default",
+                "resourceVersion": "35600",
+                "uid": "3a921af6-cd4b-4020-a5aa-f5c26ae064bc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:44Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:44Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-2xlfs.18df9e63043a1372",
+                "namespace": "default",
+                "resourceVersion": "35613",
+                "uid": "5cd389c7-87b7-4d1d-bc1d-1b617414910a"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:45Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-2xlfs",
+                "namespace": "default",
+                "resourceVersion": "35600",
+                "uid": "3a921af6-cd4b-4020-a5aa-f5c26ae064bc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:45Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:45Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-2xlfs.18df9e63136fd055",
+                "namespace": "default",
+                "resourceVersion": "35618",
+                "uid": "017a361d-3ddc-40a5-945a-7ef463ed9626"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-2xlfs",
+                "namespace": "default",
+                "resourceVersion": "35600",
+                "uid": "3a921af6-cd4b-4020-a5aa-f5c26ae064bc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:05Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:05Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-2xlfs.18df9e67c33fe0cf",
+                "namespace": "default",
+                "resourceVersion": "35671",
+                "uid": "2194cfb5-2fa1-4bdb-9903-5555062e67de"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:19Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-6jsxl",
+                "namespace": "default",
+                "resourceVersion": "35719",
+                "uid": "e1adb4d3-7535-4803-8326-f925c8749c01"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:19Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:19Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-6jsxl.18df9e6b03ef10fe",
+                "namespace": "default",
+                "resourceVersion": "35730",
+                "uid": "31ca056b-e1c3-48b6-96cb-eac34fe962e4"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:19Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-6jsxl",
+                "namespace": "default",
+                "resourceVersion": "35719",
+                "uid": "e1adb4d3-7535-4803-8326-f925c8749c01"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:19Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:19Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-6jsxl.18df9e6b05ac363a",
+                "namespace": "default",
+                "resourceVersion": "35732",
+                "uid": "272c435d-68e9-4960-8dbb-e5193428979a"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:19Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-6jsxl",
+                "namespace": "default",
+                "resourceVersion": "35719",
+                "uid": "e1adb4d3-7535-4803-8326-f925c8749c01"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:19Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:19Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-6jsxl.18df9e6b10c3fb54",
+                "namespace": "default",
+                "resourceVersion": "35733",
+                "uid": "d1a199f6-a371-47f2-b03f-90f716964318"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:39Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-6jsxl",
+                "namespace": "default",
+                "resourceVersion": "35719",
+                "uid": "e1adb4d3-7535-4803-8326-f925c8749c01"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:39Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:39Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-6jsxl.18df9e6fc1176d13",
+                "namespace": "default",
+                "resourceVersion": "35791",
+                "uid": "8d1dca6c-c28b-4d84-817b-f025eb8f14ac"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:19Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-ggxvp",
+                "namespace": "default",
+                "resourceVersion": "35718",
+                "uid": "d51b847a-c19c-446a-8a96-3e54b4536b24"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:19Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:19Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-ggxvp.18df9e6b007d6891",
+                "namespace": "default",
+                "resourceVersion": "35727",
+                "uid": "5c44bd94-888a-421d-87ae-2d17b2e095d1"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:19Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-ggxvp",
+                "namespace": "default",
+                "resourceVersion": "35718",
+                "uid": "d51b847a-c19c-446a-8a96-3e54b4536b24"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:19Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:19Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-ggxvp.18df9e6b02fe2604",
+                "namespace": "default",
+                "resourceVersion": "35729",
+                "uid": "866324d8-edd1-4bdb-9321-818c2548a680"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:19Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-ggxvp",
+                "namespace": "default",
+                "resourceVersion": "35718",
+                "uid": "d51b847a-c19c-446a-8a96-3e54b4536b24"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:19Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:19Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-ggxvp.18df9e6b16a28abc",
+                "namespace": "default",
+                "resourceVersion": "35737",
+                "uid": "2e76356f-cbe0-411c-ad29-c773265dd5bf"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:39Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-ggxvp",
+                "namespace": "default",
+                "resourceVersion": "35718",
+                "uid": "d51b847a-c19c-446a-8a96-3e54b4536b24"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:39Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:39Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-ggxvp.18df9e6fc0ce4d77",
+                "namespace": "default",
+                "resourceVersion": "35790",
+                "uid": "07a176e4-34c7-490a-891d-aa469bfce2b5"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:53Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-kkkhm",
+                "namespace": "default",
+                "resourceVersion": "35839",
+                "uid": "cd3da8b6-1ccb-419f-aa84-4545225e1a4d"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:53Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:53Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-kkkhm.18df9e731c8f0ce4",
+                "namespace": "default",
+                "resourceVersion": "35846",
+                "uid": "dbc20b5e-e8d4-4435-8e1e-444af20e409a"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:54Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-kkkhm",
+                "namespace": "default",
+                "resourceVersion": "35839",
+                "uid": "cd3da8b6-1ccb-419f-aa84-4545225e1a4d"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:54Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:54Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-kkkhm.18df9e731fac8576",
+                "namespace": "default",
+                "resourceVersion": "35850",
+                "uid": "d384ddf1-6b20-4458-9bbc-30e6e1fcf3e1"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:54Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-kkkhm",
+                "namespace": "default",
+                "resourceVersion": "35839",
+                "uid": "cd3da8b6-1ccb-419f-aa84-4545225e1a4d"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:54Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:54Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-kkkhm.18df9e732cbf3290",
+                "namespace": "default",
+                "resourceVersion": "35856",
+                "uid": "9e14a23f-2b6c-4cf7-b090-f24699f1235e"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:44Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-lpcc8",
+                "namespace": "default",
+                "resourceVersion": "35601",
+                "uid": "005a35e3-f38a-4510-9a68-25103a9a00e6"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:44Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:44Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-lpcc8.18df9e62fa874daa",
+                "namespace": "default",
+                "resourceVersion": "35608",
+                "uid": "8ed1db85-3167-4919-b828-e06646e84dcd"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:44Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-lpcc8",
+                "namespace": "default",
+                "resourceVersion": "35601",
+                "uid": "005a35e3-f38a-4510-9a68-25103a9a00e6"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:44Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:44Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-lpcc8.18df9e62fdfd4744",
+                "namespace": "default",
+                "resourceVersion": "35610",
+                "uid": "1171a867-5296-4147-9bce-6417f709cd50"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:44Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-lpcc8",
+                "namespace": "default",
+                "resourceVersion": "35601",
+                "uid": "005a35e3-f38a-4510-9a68-25103a9a00e6"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:44Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:44Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-lpcc8.18df9e630cf7c0d4",
+                "namespace": "default",
+                "resourceVersion": "35614",
+                "uid": "90da4c11-1823-430e-a54f-145146bada1e"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-lpcc8",
+                "namespace": "default",
+                "resourceVersion": "35601",
+                "uid": "005a35e3-f38a-4510-9a68-25103a9a00e6"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:05Z",
+            "message": "Stopping container nginx",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:05Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-lpcc8.18df9e67c3a57b0b",
+                "namespace": "default",
+                "resourceVersion": "35672",
+                "uid": "9d1f4ab8-4370-4798-8eb3-7d48b8404174"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:53Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-mw6gr",
+                "namespace": "default",
+                "resourceVersion": "35837",
+                "uid": "87ae23ff-d135-4915-9abb-7a8599bd9107"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:53Z",
+            "message": "Container image \"nginx:1.25-alpine\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:53Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-mw6gr.18df9e731c4eea20",
+                "namespace": "default",
+                "resourceVersion": "35845",
+                "uid": "2f4aecbd-abb3-401d-b381-9a176119d703"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:54Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-mw6gr",
+                "namespace": "default",
+                "resourceVersion": "35837",
+                "uid": "87ae23ff-d135-4915-9abb-7a8599bd9107"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:54Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:54Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-mw6gr.18df9e731f8e24df",
+                "namespace": "default",
+                "resourceVersion": "35849",
+                "uid": "2a0d53c4-e0b5-4c93-9603-a9009815cdd6"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:54Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{nginx}",
+                "kind": "Pod",
+                "name": "scenario1-energy-aware-768bbfbb5c-mw6gr",
+                "namespace": "default",
+                "resourceVersion": "35837",
+                "uid": "87ae23ff-d135-4915-9abb-7a8599bd9107"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:54Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:54Z",
+                "name": "scenario1-energy-aware-768bbfbb5c-mw6gr.18df9e73271db308",
+                "namespace": "default",
+                "resourceVersion": "35852",
+                "uid": "31371db7-2af2-4773-b0d0-d07e13229502"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:43Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-energy-aware-768bbfbb5c",
+                "namespace": "default",
+                "resourceVersion": "35586",
+                "uid": "2daa2b81-8e65-46c8-84ae-da8141dda6ef"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:43Z",
+            "message": "Created pod: scenario1-energy-aware-768bbfbb5c-lpcc8",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:43Z",
+                "name": "scenario1-energy-aware-768bbfbb5c.18df9e629b9221d2",
+                "namespace": "default",
+                "resourceVersion": "35590",
+                "uid": "8af47630-9288-4c38-8da5-4f4c6def971a"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:43Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-energy-aware-768bbfbb5c",
+                "namespace": "default",
+                "resourceVersion": "35586",
+                "uid": "2daa2b81-8e65-46c8-84ae-da8141dda6ef"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:43Z",
+            "message": "Created pod: scenario1-energy-aware-768bbfbb5c-2xlfs",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:43Z",
+                "name": "scenario1-energy-aware-768bbfbb5c.18df9e629c2771df",
+                "namespace": "default",
+                "resourceVersion": "35594",
+                "uid": "1ac3f674-c57c-4b45-82c0-4f19fd6fc8dc"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:18Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-energy-aware-768bbfbb5c",
+                "namespace": "default",
+                "resourceVersion": "35709",
+                "uid": "8570ea0d-5f84-4b64-8de1-6a07e94f9ebb"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:18Z",
+            "message": "Created pod: scenario1-energy-aware-768bbfbb5c-ggxvp",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:18Z",
+                "name": "scenario1-energy-aware-768bbfbb5c.18df9e6acc7d73c0",
+                "namespace": "default",
+                "resourceVersion": "35714",
+                "uid": "0c839f76-44b0-4077-bf3b-7053f05a683f"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:18Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-energy-aware-768bbfbb5c",
+                "namespace": "default",
+                "resourceVersion": "35709",
+                "uid": "8570ea0d-5f84-4b64-8de1-6a07e94f9ebb"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:18Z",
+            "message": "Created pod: scenario1-energy-aware-768bbfbb5c-6jsxl",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:18Z",
+                "name": "scenario1-energy-aware-768bbfbb5c.18df9e6acd252c17",
+                "namespace": "default",
+                "resourceVersion": "35716",
+                "uid": "a40acec0-b17e-4e04-b5a5-580e83fe9d96"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:53Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-energy-aware-768bbfbb5c",
+                "namespace": "default",
+                "resourceVersion": "35830",
+                "uid": "f55a7a21-7cf1-4b2b-92b4-706939857671"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:53Z",
+            "message": "Created pod: scenario1-energy-aware-768bbfbb5c-mw6gr",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:53Z",
+                "name": "scenario1-energy-aware-768bbfbb5c.18df9e72ec2b00ad",
+                "namespace": "default",
+                "resourceVersion": "35834",
+                "uid": "98948b73-e809-45e0-91a5-a5e5ffd3c19f"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:53Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "scenario1-energy-aware-768bbfbb5c",
+                "namespace": "default",
+                "resourceVersion": "35830",
+                "uid": "f55a7a21-7cf1-4b2b-92b4-706939857671"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:53Z",
+            "message": "Created pod: scenario1-energy-aware-768bbfbb5c-kkkhm",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:53Z",
+                "name": "scenario1-energy-aware-768bbfbb5c.18df9e72ecea4e02",
+                "namespace": "default",
+                "resourceVersion": "35838",
+                "uid": "251d2326-70f0-4d69-b157-55c963bdf1a9"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:08:43Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "scenario1-energy-aware",
+                "namespace": "default",
+                "resourceVersion": "35585",
+                "uid": "44ba9b06-53b4-4efb-8791-eaf84e537ba7"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:08:43Z",
+            "message": "Scaled up replica set scenario1-energy-aware-768bbfbb5c from 0 to 2",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:08:43Z",
+                "name": "scenario1-energy-aware.18df9e629ad5b7c1",
+                "namespace": "default",
+                "resourceVersion": "35588",
+                "uid": "3b0a3377-babb-40f9-a44e-17ab00fb18d4"
+            },
+            "reason": "ScalingReplicaSet",
+            "reportingComponent": "deployment-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "deployment-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:18Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "scenario1-energy-aware",
+                "namespace": "default",
+                "resourceVersion": "35708",
+                "uid": "896d9c68-466f-4752-978b-94180b0ec1f5"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:18Z",
+            "message": "Scaled up replica set scenario1-energy-aware-768bbfbb5c from 0 to 2",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:18Z",
+                "name": "scenario1-energy-aware.18df9e6acbf042b0",
+                "namespace": "default",
+                "resourceVersion": "35711",
+                "uid": "05b17862-3e35-42c4-a4c7-01654489b74f"
+            },
+            "reason": "ScalingReplicaSet",
+            "reportingComponent": "deployment-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "deployment-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T12:09:53Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "name": "scenario1-energy-aware",
+                "namespace": "default",
+                "resourceVersion": "35829",
+                "uid": "eef59587-2330-4105-bf0a-602cddbe787a"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T12:09:53Z",
+            "message": "Scaled up replica set scenario1-energy-aware-768bbfbb5c from 0 to 2",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T12:09:53Z",
+                "name": "scenario1-energy-aware.18df9e72eb95a8a7",
+                "namespace": "default",
+                "resourceVersion": "35832",
+                "uid": "f8a59561-c1b3-45f5-9ab0-f4ba140f8b77"
+            },
+            "reason": "ScalingReplicaSet",
+            "reportingComponent": "deployment-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "deployment-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:15Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{stress}",
+                "kind": "Pod",
+                "name": "stress-energy-aware-72c56",
+                "namespace": "default",
+                "resourceVersion": "33464",
+                "uid": "b9d89bb0-51ed-4e4f-a208-f353e87b7943"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:15Z",
+            "message": "Pulling image \"alexeiled/stress-ng:latest\"",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:15Z",
+                "name": "stress-energy-aware-72c56.18df9d989b45c052",
+                "namespace": "default",
+                "resourceVersion": "33476",
+                "uid": "b3d7e5a3-e567-4866-b991-6eec9401c164"
+            },
+            "reason": "Pulling",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:18Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{stress}",
+                "kind": "Pod",
+                "name": "stress-energy-aware-72c56",
+                "namespace": "default",
+                "resourceVersion": "33464",
+                "uid": "b9d89bb0-51ed-4e4f-a208-f353e87b7943"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:18Z",
+            "message": "Successfully pulled image \"alexeiled/stress-ng:latest\" in 2.689s (2.69s including waiting). Image size: 3939132 bytes.",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:18Z",
+                "name": "stress-energy-aware-72c56.18df9d993b9fd79b",
+                "namespace": "default",
+                "resourceVersion": "33492",
+                "uid": "637d2807-1b96-474d-ba75-826c9f6db338"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:18Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{stress}",
+                "kind": "Pod",
+                "name": "stress-energy-aware-72c56",
+                "namespace": "default",
+                "resourceVersion": "33464",
+                "uid": "b9d89bb0-51ed-4e4f-a208-f353e87b7943"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:18Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:18Z",
+                "name": "stress-energy-aware-72c56.18df9d9940836602",
+                "namespace": "default",
+                "resourceVersion": "33493",
+                "uid": "2ae46e18-0a5e-4e63-9496-4f9db89ba7e3"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:18Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{stress}",
+                "kind": "Pod",
+                "name": "stress-energy-aware-72c56",
+                "namespace": "default",
+                "resourceVersion": "33464",
+                "uid": "b9d89bb0-51ed-4e4f-a208-f353e87b7943"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:18Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:18Z",
+                "name": "stress-energy-aware-72c56.18df9d9948738080",
+                "namespace": "default",
+                "resourceVersion": "33494",
+                "uid": "dd230002-cf02-4641-9f83-097738ab586e"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "energy-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "energy-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:54:14Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "stress-energy-aware",
+                "namespace": "default",
+                "resourceVersion": "33462",
+                "uid": "06a25e0b-c689-4317-bf01-cb94be5c49ef"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:54:14Z",
+            "message": "Created pod: stress-energy-aware-72c56",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:54:14Z",
+                "name": "stress-energy-aware.18df9d986ff39dbd",
+                "namespace": "default",
+                "resourceVersion": "33465",
+                "uid": "9689665d-aa8f-41c7-8042-e6b7086a5856"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-10-18T11:55:21Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "stress-energy-aware",
+                "namespace": "default",
+                "resourceVersion": "33626",
+                "uid": "06a25e0b-c689-4317-bf01-cb94be5c49ef"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-10-18T11:55:21Z",
+            "message": "Job completed",
+            "metadata": {
+                "creationTimestamp": "2026-10-18T11:55:21Z",
+                "name": "stress-energy-aware.18df9da7f55026eb",
+                "namespace": "default",
+                "resourceVersion": "33629",
+                "uid": "59f7e111-3e1a-4713-bd6a-089d030628a1"
+            },
+            "reason": "Completed",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

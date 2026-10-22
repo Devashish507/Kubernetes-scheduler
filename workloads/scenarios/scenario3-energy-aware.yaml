@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scenario3-energy-aware
+  namespace: default
+  labels:
+    app: scenario3-energy-aware
+    energy.project/scenario: scenario3
+    energy.project/scheduler: energy-aware-scheduler
+    energy.project/workload-type: latency-sensitive
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: scenario3-energy-aware
+  template:
+    metadata:
+      labels:
+        app: scenario3-energy-aware
+        energy.project/scenario: scenario3
+        energy.project/scheduler: energy-aware-scheduler
+        energy.project/workload-type: latency-sensitive
+      annotations:
+        energy.project/workload-type: latency-sensitive
+    spec:
+      schedulerName: energy-aware-scheduler
+      containers:
+        - name: nginx
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 500m
+              memory: 256Mi
+            limits:
+              cpu: 1000m
+              memory: 512Mi

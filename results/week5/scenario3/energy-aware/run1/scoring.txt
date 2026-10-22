@@ -1,0 +1,10 @@
+I1018 12:15:59.838072       1 eventhandlers.go:407] "Update event for scheduled pod" pod="default/scenario3-energy-aware-678c6cc847-rg6sm"
+I1018 12:15:59.899357       1 eventhandlers.go:407] "Update event for scheduled pod" pod="default/scenario3-energy-aware-678c6cc847-pvqkl"
+I1018 12:15:59.922334       1 eventhandlers.go:407] "Update event for scheduled pod" pod="default/scenario3-energy-aware-678c6cc847-l2s79"
+I1018 12:15:59.928842       1 eventhandlers.go:407] "Update event for scheduled pod" pod="default/scenario3-energy-aware-678c6cc847-5mk9h"
+I1018 12:16:00.519942       1 httplog.go:134] "HTTP" verb="GET" URI="/healthz" latency="112.683µs" userAgent="kube-probe/1.37" audit-ID="" srcIP="10.244.0.1:33196" resp=200
+I1018 12:16:05.517094       1 httplog.go:134] "HTTP" verb="GET" URI="/healthz" latency="67.805µs" userAgent="kube-probe/1.37" audit-ID="" srcIP="10.244.0.1:33208" resp=200
+I1018 12:16:06.855540       1 reflector.go:1093] "Watch close" reflector="pkg/mod/k8s.io/client-go@v0.36.4/tools/cache/reflector.go:343" type="*v1.ReplicaSet" totalItems=116
+I1018 12:16:09.601689       1 httplog.go:134] "HTTP" verb="GET" URI="/healthz" latency="281.628µs" userAgent="kube-probe/1.37" audit-ID="" srcIP="10.244.0.1:33224" resp=200
+I1018 12:16:10.520254       1 httplog.go:134] "HTTP" verb="GET" URI="/healthz" latency="80.486µs" userAgent="kube-probe/1.37" audit-ID="" srcIP="10.244.0.1:52542" resp=200
+I1018 12:16:15.523996       1 httplog.go:134] "HTTP" verb="GET" URI="/healthz" latency="197.226µs" userAgent="kube-probe/1.37" audit-ID="" srcIP="10.244.0.1:52550" resp=200

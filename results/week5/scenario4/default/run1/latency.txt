@@ -1,0 +1,10 @@
+Pod                                           Created                   Scheduled                 Delay(s)  
+--------------------------------------------------------------------------------------------------------------
+scenario4-batch-default-586d9d5fd-5jsnk       2026-10-18T12:17:48Z      2026-10-18T12:17:48Z      0.000     
+scenario4-batch-default-586d9d5fd-7jfkv       2026-10-18T12:17:48Z      2026-10-18T12:17:48Z      0.000     
+scenario4-batch-default-586d9d5fd-8rf7m       2026-10-18T12:17:48Z      2026-10-18T12:17:48Z      0.000     
+scenario4-latency-default-d8bcf96b4-lksxq     2026-10-18T12:17:48Z      2026-10-18T12:17:48Z      0.000     
+scenario4-latency-default-d8bcf96b4-tqbxm     2026-10-18T12:17:48Z      2026-10-18T12:17:48Z      0.000     
+scenario4-latency-default-d8bcf96b4-vgsph     2026-10-18T12:17:48Z      2026-10-18T12:17:48Z      0.000     
+--------------------------------------------------------------------------------------------------------------
+Mean Delay: 0.000s | Min: 0.000s | Max: 0.000s

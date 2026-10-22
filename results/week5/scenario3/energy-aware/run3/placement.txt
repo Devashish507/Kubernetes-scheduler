@@ -1,0 +1,9 @@
+NAME                                      READY   STATUS    RESTARTS   AGE   IP            NODE             NOMINATED NODE   READINESS GATES
+scenario3-energy-aware-678c6cc847-7qrz4   1/1     Running   0          17s   10.244.3.44   energy-worker    <none>           <none>
+scenario3-energy-aware-678c6cc847-87x44   1/1     Running   0          17s   10.244.1.29   energy-worker3   <none>           <none>
+scenario3-energy-aware-678c6cc847-ctd4m   1/1     Running   0          17s   10.244.2.34   energy-worker2   <none>           <none>
+scenario3-energy-aware-678c6cc847-djllt   1/1     Running   0          17s   10.244.3.46   energy-worker    <none>           <none>
+scenario3-energy-aware-678c6cc847-gwvxd   1/1     Running   0          17s   10.244.3.45   energy-worker    <none>           <none>
+scenario3-energy-aware-678c6cc847-hbb74   1/1     Running   0          17s   10.244.1.30   energy-worker3   <none>           <none>
+scenario3-energy-aware-678c6cc847-hjwnm   1/1     Running   0          17s   10.244.2.36   energy-worker2   <none>           <none>
+scenario3-energy-aware-678c6cc847-rtrr8   1/1     Running   0          17s   10.244.2.35   energy-worker2   <none>           <none>

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scenario1-default
+  namespace: default
+  labels:
+    app: scenario1-default
+    energy.project/scenario: scenario1
+    energy.project/scheduler: default-scheduler
+    energy.project/workload-type: latency-sensitive
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: scenario1-default
+  template:
+    metadata:
+      labels:
+        app: scenario1-default
+        energy.project/scenario: scenario1
+        energy.project/scheduler: default-scheduler
+        energy.project/workload-type: latency-sensitive
+      annotations:
+        energy.project/workload-type: latency-sensitive
+    spec:
+      schedulerName: default-scheduler
+      containers:
+        - name: nginx
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 50m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi

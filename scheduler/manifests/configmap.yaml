@@ -48,6 +48,11 @@ data:
               # Hard utilization cap. Nodes at or above this % are excluded.
               utilizationThreshold: 80
 
+              # Cluster-wide reference power for P_i normalisation.
+              # Set to the highest p-max label in the cluster (power-hungry = 200W).
+              # P_i = P(u_after) / maxReferencePowerW
+              maxReferencePowerW: 200
+
               # Override Prometheus URL (leave empty to use the in-cluster default).
               prometheusURL: ""
 
