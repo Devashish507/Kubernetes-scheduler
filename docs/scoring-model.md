@@ -1,6 +1,6 @@
 # Scoring Model — EnergyAware Scheduler
 
-> **B.Tech Final-Year Project — Energy-Aware Kubernetes Scheduler**
+> **B.Tech Final-Year Project — Energy-Aware Kubernetes Scheduler**  
 > Corresponds to **Section 5.6** of the project paper.
 
 ---
@@ -46,8 +46,11 @@ Two named profiles are selected by the pod annotation
 
 | Profile | Trigger annotation value | $w_R$ | $w_L$ | $w_P$ | Design rationale |
 |:---|:---|:---:|:---:|:---:|:---|
-| **latency-sensitive** | `latency-sensitive` | 0.3 | **0.6** | 0.1 | L_i dominant — prefer idle nodes to reduce queuing delay. |
-| **batch** (default) | `batch` or absent | 0.3 | 0.1 | **0.6** | P_i dominant — prefer energy-efficient placement. |
+| **latency-sensitive** | `latency-sensitive` | 0.2 | **0.6** | 0.2 | L_i dominant — prefer idle nodes to reduce queuing delay. |
+| **batch** (default) | `batch` or absent | 0.2 | 0.2 | **0.6** | P_i dominant — prefer energy-efficient placement. |
+
+> **Week 6 weight change (tuned by `scripts/tune_weights.py`):**  
+> See the history table below for old vs new values.
 
 Weights are configurable in the `KubeSchedulerConfiguration` ConfigMap
 (`scheduler/manifests/configmap.yaml`) without rebuilding the image. After
@@ -57,6 +60,30 @@ editing the ConfigMap, restart the scheduler:
 kubectl apply -f scheduler/manifests/configmap.yaml
 kubectl rollout restart deployment/energy-aware-scheduler -n kube-system
 ```
+
+---
+
+## Weight Tuning History
+
+| Date | Event | latency-sensitive (wR / wL / wP) | batch (wR / wL / wP) |
+|:---|:---|:---:|:---:|
+| Week 4–5 (initial) | Default design | 0.3 / 0.6 / 0.1 | 0.3 / 0.1 / 0.6 |
+| Week 6 | Grid search via `tune_weights.py` | **0.2 / 0.6 / 0.2** | **0.2 / 0.2 / 0.6** |
+
+**Rationale for Week 6 change:**  
+The grid search evaluated all 6 valid (wR, wL, wP) triples from {0.2, 0.4, 0.6}
+summing to 1.0.  The selection rule was: *among combinations with p95 latency
+within 10% of the best observed p95, choose the one with the lowest estimated
+cluster power.*  
+- Reducing `wR` from 0.3 → 0.2 and `wP` from 0.1 → 0.2 for the
+  latency-sensitive profile keeps the `wL` dominance intact while giving the
+  power term a slightly stronger signal without degrading latency.
+- For the batch profile, `wR` was reduced from 0.3 → 0.2, keeping all savings
+  in `wP` (0.6), which simplifies the grid and aligns with the project's
+  primary energy-savings goal.  
+- See `results/week6/tuning.csv` for full grid results.  
+- Bayesian optimization of weights is noted as future work in
+  `docs/week6-notes.md`.
 
 ---
 
@@ -91,7 +118,7 @@ When `--v=3` or higher is passed to the scheduler, each scored node emits:
 ```
 I1018 ... EnergyAware scored node
   node=energy-worker workloadType=batch
-  weights="wR=0.30 wL=0.10 wP=0.60"
+  weights="wR=0.20 wL=0.20 wP=0.60"
   R_i=0.7234  L_i=0.6500  P_i=0.1000
   deltaPower_W=4.00W  compositeScore=0.209000  rawScore=209000
 ```

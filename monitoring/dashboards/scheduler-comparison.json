@@ -2,7 +2,7 @@
   "__inputs": [],
   "__requires": [],
   "annotations": { "list": [] },
-  "description": "Energy-Aware Scheduler — comparison dashboard for B.Tech final-year project",
+  "description": "Energy-Aware Scheduler — comparison dashboard for B.Tech final-year project (Week 6 update)",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
@@ -62,7 +62,7 @@
     },
     {
       "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-      "description": "Estimated power using P(u) = P_idle + (P_max - P_idle) * u.\nP_idle and P_max come from node labels energy.project/p-idle and energy.project/p-max.\nValues: efficient=20W/60W, medium=40W/120W, power-hungry=80W/200W.",
+      "description": "Estimated power per node using P(u) = P_idle + (P_max - P_idle) * u.\nP_idle and P_max are SIMULATED labels (energy.project/p-idle, energy.project/p-max).\nValues: efficient=20W/60W, medium=40W/120W, power-hungry=80W/200W.\nNote: PromQL encodes the label values directly because kube_node_labels or\nkube_node_info do not expose custom labels in the default kube-state-metrics config.\nPower is also computed offline in analyze_results.py for the paper results.",
       "fieldConfig": {
         "defaults": {
           "color": { "mode": "palette-classic" },
@@ -72,7 +72,7 @@
         },
         "overrides": []
       },
-      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 10 },
+      "gridPos": { "h": 8, "w": 16, "x": 0, "y": 10 },
       "id": 4,
       "options": {
         "legend": { "calcs": ["mean", "max", "last"], "displayMode": "table", "placement": "right" }
@@ -102,7 +102,7 @@
     },
     {
       "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-      "description": "Sum of estimated power across all three worker nodes.",
+      "description": "Sum of estimated power across all three worker nodes.\nFormula: sum over nodes of [P_idle + (P_max - P_idle) * cpu_util/100].",
       "fieldConfig": {
         "defaults": { "unit": "watt", "color": { "mode": "thresholds" },
           "thresholds": { "mode": "absolute", "steps": [
@@ -113,7 +113,7 @@
         },
         "overrides": []
       },
-      "gridPos": { "h": 4, "w": 8, "x": 0, "y": 18 },
+      "gridPos": { "h": 4, "w": 8, "x": 16, "y": 10 },
       "id": 5,
       "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "orientation": "horizontal", "textMode": "auto" },
       "targets": [
@@ -128,8 +128,60 @@
       "type": "stat"
     },
     {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "description": "Current estimated power for each worker node as a gauge panel.\nSame formula as the timeseries above: P(u) = P_idle + (P_max - P_idle) * u.\nGood screenshot candidate for the paper (shows heterogeneous power at a glance).",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "watt",
+          "min": 0,
+          "max": 250,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green",  "value": null },
+              { "color": "yellow", "value": 100 },
+              { "color": "red",    "value": 160 }
+            ]
+          },
+          "mappings": [],
+          "color": { "mode": "thresholds" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 8, "x": 16, "y": 14 },
+      "id": 12,
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "orientation": "auto",
+        "textMode": "value_and_name",
+        "graphMode": "none"
+      },
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "20 + (60 - 20) * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker\"}[2m])) * 100)) / 100)",
+          "legendFormat": "energy-worker (efficient)",
+          "refId": "A"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "40 + (120 - 40) * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker2\"}[2m])) * 100)) / 100)",
+          "legendFormat": "energy-worker2 (medium)",
+          "refId": "B"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "80 + (200 - 80) * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker3\"}[2m])) * 100)) / 100)",
+          "legendFormat": "energy-worker3 (power-hungry)",
+          "refId": "C"
+        }
+      ],
+      "title": "Per-Node Estimated Power — Current (W)",
+      "type": "stat"
+    },
+    {
       "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 22 },
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 18 },
       "id": 6,
       "title": "Pod Placement by Node",
       "type": "row"
@@ -141,7 +193,7 @@
         "defaults": { "color": { "mode": "palette-classic" } },
         "overrides": []
       },
-      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 23 },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 19 },
       "id": 7,
       "options": { "pieType": "donut", "legend": { "displayMode": "table", "placement": "right" } },
       "targets": [
@@ -161,11 +213,11 @@
       "fieldConfig": {
         "defaults": {},
         "overrides": [
-          { "matcher": { "id": "byName", "options": "pod" }, "properties": [{ "id": "custom.width", "value": 260 }] },
+          { "matcher": { "id": "byName", "options": "pod" },  "properties": [{ "id": "custom.width", "value": 260 }] },
           { "matcher": { "id": "byName", "options": "node" }, "properties": [{ "id": "custom.width", "value": 160 }] }
         ]
       },
-      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 23 },
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 19 },
       "id": 8,
       "options": { "sortBy": [{ "desc": false, "displayName": "pod" }] },
       "targets": [
@@ -185,8 +237,36 @@
       "type": "table"
     },
     {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "description": "Number of pods per node broken down by scheduler name.\nDetects which scheduler is responsible for each node's pod count.\nMetric: kube_pod_info joined with kube_pod_labels to get the\nenergy.project/scheduler label value.\nNote: requires kube-state-metrics to expose the custom pod label.\nIf the label is not visible, filter by pod-name prefix instead.",
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "lineWidth": 2 },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 7, "w": 24, "x": 0, "y": 27 },
+      "id": 13,
+      "options": {
+        "legend": { "calcs": ["last"], "displayMode": "table", "placement": "right" },
+        "tooltip": { "mode": "multi" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "count by (node, scheduler) (\n  kube_pod_info{namespace=\"default\"}\n  * on(pod, namespace) group_left(label_energy_project_scheduler)\n  kube_pod_labels{namespace=\"default\"}\n)",
+          "legendFormat": "{{ node }} / {{ label_energy_project_scheduler }}",
+          "refId": "A"
+        }
+      ],
+      "title": "Pods per Node by Scheduler (default namespace)",
+      "type": "timeseries"
+    },
+    {
       "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 31 },
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 34 },
       "id": 9,
       "title": "Node Resource Utilization",
       "type": "row"
@@ -197,7 +277,7 @@
         "defaults": { "unit": "percentunit", "min": 0, "max": 1, "color": { "mode": "palette-classic" } },
         "overrides": []
       },
-      "gridPos": { "h": 7, "w": 12, "x": 0, "y": 32 },
+      "gridPos": { "h": 7, "w": 12, "x": 0, "y": 35 },
       "id": 10,
       "targets": [
         {
@@ -216,7 +296,7 @@
         "defaults": { "unit": "percentunit", "min": 0, "max": 1, "color": { "mode": "palette-classic" } },
         "overrides": []
       },
-      "gridPos": { "h": 7, "w": 12, "x": 12, "y": 32 },
+      "gridPos": { "h": 7, "w": 12, "x": 12, "y": 35 },
       "id": 11,
       "targets": [
         {
@@ -253,5 +333,5 @@
   "timezone": "browser",
   "title": "Energy-Aware Scheduler — Comparison",
   "uid": "energy-scheduler-comparison",
-  "version": 1
+  "version": 2
 }

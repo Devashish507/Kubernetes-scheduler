@@ -1,0 +1,110 @@
+---
+# =============================================================================
+# workloads/load-generator.yaml
+# Week 6 – Application Latency Measurement (Task 1)
+#
+# Runs a fixed-rate HTTP load test against the nginx latency-sensitive Service
+# exposed in Scenario 4.  Uses the official fortio/fortio image.
+#
+# Image source:  https://hub.docker.com/r/fortio/fortio
+# CLI reference: https://github.com/fortio/fortio#command-line-arguments
+#
+# Usage:
+#   # Create a ClusterIP Service for the nginx pods first (see below), then:
+#   kubectl apply -f workloads/load-generator.yaml --context kind-energy
+#   kubectl wait --for=condition=complete job/fortio-load-test -n default \
+#       --context kind-energy --timeout=120s
+#   kubectl logs -n default -l job-name=fortio-load-test --context kind-energy
+#
+# The Job prints a text summary that includes p50 / p75 / p90 / p99 / p99.9
+# latency percentiles.  The run-experiments.sh script captures this via
+# `kubectl logs` and saves it to results/week6/<scenario>/<sched>/run<N>/loadtest.txt.
+#
+# Design choices:
+#   -qps 50   → 50 requests/second; gentle enough that a single nginx pod can
+#               handle it without overwhelming the Kind cluster host.
+#   -c 4      → 4 concurrent connections (default fortio value is 4).
+#   -t 60s    → 60-second test window so the batch stress-ng pods stay running
+#               concurrently and create measurable interference.
+#   -labels   → embedded in the JSON so results reference the scenario.
+#
+# NOTE: The Service below targets pods with label app=scenario4-latency-<sched>.
+# The run-experiments.sh script patches the targetSelector before applying,
+# or you can apply this YAML directly after the scenario4 manifest is live.
+# =============================================================================
+
+# ── Service exposing the nginx pods (Scenario 4, latency-sensitive) ──────────
+# One Service is sufficient; the load generator Job uses its ClusterIP.
+# This Service is re-used for both default and energy-aware scheduler runs
+# because only one scenario runs at a time.
+apiVersion: v1
+kind: Service
+metadata:
+  name: scenario4-nginx-svc
+  namespace: default
+  labels:
+    energy.project/scenario: scenario4
+    energy.project/component: load-target
+spec:
+  # Selector is intentionally broad to match whichever Scenario 4 nginx
+  # Deployment is currently live (default or energy-aware).
+  selector:
+    energy.project/scenario: scenario4
+    energy.project/workload-type: latency-sensitive
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+# ── fortio load-generator Job ─────────────────────────────────────────────────
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fortio-load-test
+  namespace: default
+  labels:
+    energy.project/scenario: scenario4
+    energy.project/component: load-generator
+spec:
+  # Do not retry on failure; a failed run is marked as failed in the analysis.
+  backoffLimit: 0
+  # Auto-clean after 10 minutes so it does not clutter the namespace.
+  ttlSecondsAfterFinished: 600
+  template:
+    metadata:
+      labels:
+        energy.project/scenario: scenario4
+        energy.project/component: load-generator
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: fortio
+          # Official image: https://hub.docker.com/r/fortio/fortio
+          # Using the :latest tag which tracks the stable release.
+          image: fortio/fortio:latest
+          # fortio load subcommand: run an HTTP load test and print percentiles.
+          # Flags verified against https://github.com/fortio/fortio#command-line-arguments
+          #   -qps   : target request rate (requests per second)
+          #   -c     : concurrent connections
+          #   -t     : test duration
+          #   -labels: metadata embedded in JSON output
+          args:
+            - "load"
+            - "-qps"
+            - "50"
+            - "-c"
+            - "4"
+            - "-t"
+            - "60s"
+            - "-labels"
+            - "scenario=scenario4,component=latency-test"
+            - "http://scenario4-nginx-svc.default.svc.cluster.local/"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi

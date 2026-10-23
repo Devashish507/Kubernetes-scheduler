@@ -1,262 +1,194 @@
 # Energy-Aware Kubernetes Scheduler
 
-> **B.Tech Final Year Project** — Evaluating energy consumption and
-> scheduling efficiency of different Kubernetes schedulers in a local
-> multi-node cluster.
+> **B.Tech Final-Year Project**  
+> Evaluating energy-efficient pod scheduling in a local Kubernetes cluster
+> using a custom scheduler plugin that scores nodes on resource availability,
+> latency suitability, and estimated power consumption.
 
 ---
 
-## Project Overview
+## Architecture
 
-This project investigates **energy-aware scheduling in Kubernetes** by
-comparing three scheduling strategies under identical workloads:
+```mermaid
+graph TD
+    subgraph "Kind Cluster (energy)"
+        CP["control-plane"]
+        W1["energy-worker\n(efficient)\np-idle=20W / p-max=60W"]
+        W2["energy-worker2\n(medium)\np-idle=40W / p-max=120W"]
+        W3["energy-worker3\n(power-hungry)\np-idle=80W / p-max=200W"]
+    end
 
-1. **Kubernetes Default Scheduler** — baseline; schedules based on resource
-   availability without energy awareness.
-2. **PEAKS Scheduler** — a Power and Energy Aware Kubernetes Scheduler from
-   the literature, used as an intermediate comparison point.
-3. **Custom Energy-Aware Scheduler Plugin** — a scheduler plugin built using
-   the Kubernetes Scheduler Framework that scores nodes based on simulated
-   power consumption and resource utilization.
+    subgraph "Monitoring"
+        PROM["Prometheus\n(kube-prometheus-stack)"]
+        GRAF["Grafana"]
+        NE["node-exporter\n(per node)"]
+    end
 
-The evaluation measures:
+    subgraph "Schedulers"
+        DEF["default-scheduler\n(baseline)"]
+        EA["energy-aware-scheduler\n(EnergyAware plugin)"]
+    end
 
-- **Node placement decisions** — which workloads land on which nodes
-- **CPU and memory utilization** — collected via Prometheus
-- **Estimated energy / power metrics** — via node labels (Week 1) and later
-  Kepler (future work)
-- **Scheduling latency** — time from pod creation to pod running
+    W1 & W2 & W3 -->|CPU metrics| NE --> PROM --> GRAF
+    PROM -->|utilisation query| EA
+    EA -->|Score_i = wR·R_i + wL·L_i - wP·P_i| W1 & W2 & W3
+    DEF -->|LeastAllocated| W1 & W2 & W3
+```
 
-> **Honest scope note:** KIND runs Kubernetes nodes as Docker containers on a
-> local Windows machine with WSL2. Power values used in Week 1 are
-> **simulated labels** — not real hardware measurements. Any tool such as
-> Kepler used in later phases should be understood as providing estimates in
-> the local container environment, not physical server telemetry.
+> **All power values are simulated.** Kind nodes are Docker containers sharing
+> one host kernel. No physical power sensors are available.
 
 ---
 
-## Planned Scheduler Comparison
+## Scoring Formula
 
-```
-Kubernetes Default Scheduler
-          ↓
-    PEAKS Scheduler
-          ↓
-Custom Energy-Aware Scheduler Plugin
-```
+$$\text{Score}_i = w_R \cdot R_i + w_L \cdot L_i - w_P \cdot P_i$$
 
----
+| Term | Meaning |
+|:---|:---|
+| $R_i \in [0,1]$ | Resource headroom after placing the pod |
+| $L_i \in [0,1]$ | Latency suitability — $1 - u_i / 100$ (idle = 1) |
+| $P_i \in [0,1]$ | Normalised estimated power — $P(u_{\text{after}}) / 200\,\text{W}$ |
 
-## Technology Stack
-
-```
-Windows 11
-   ↓
-WSL2 + Ubuntu
-   ↓
-Docker Desktop (provides Docker daemon, no separate Docker Engine in Ubuntu)
-   ↓
-KIND (Kubernetes IN Docker) — creates local multi-node cluster
-   ↓
-Kubernetes cluster (1 control-plane + 3 workers)
-   ↓
-Helm
-   ↓
-Prometheus + Grafana (kube-prometheus-stack)
-```
+Node power is estimated as $P(u) = P_{\text{idle}} + u \cdot (P_{\text{max}} - P_{\text{idle}})$
+from labels `energy.project/p-idle` and `energy.project/p-max`.
 
 ---
 
-## Future Architecture (Planned — Not Yet Implemented)
+## Prerequisites
 
-```
-                    Kubernetes Cluster
-                           │
-          ┌────────────────┼────────────────┐
-          │                │                │
-      Worker 1         Worker 2         Worker 3
-      Efficient         Medium         Power Hungry
-      (p-idle=20W)   (p-idle=40W)    (p-idle=80W)
-      (p-max=60W)    (p-max=120W)    (p-max=200W)
-          │                │                │
-          └────────────────┼────────────────┘
-                           │
-                    Monitoring Layer
-                           │
-                ┌──────────┴──────────┐
-                │                     │
-           Prometheus              Grafana
-                │
-          Energy Metrics
-                │
-        Later: Kepler (estimates in local env)
-                │
-        Scheduler Evaluation
-                │
-    ┌───────────┼────────────┐
-    │           │            │
- Default      PEAKS       Custom
-Scheduler                  Scheduler
-                            │
-                   Energy-Aware Scoring
-                   (estimated power +
-                    resource utilization +
-                    scheduling latency)
-```
+All commands run inside **WSL2 Ubuntu** from the project root.
 
-The custom scheduler will eventually use the **Kubernetes Scheduler
-Framework** (implemented as a plugin via `kubernetes-sigs/scheduler-plugins`)
-to score nodes using:
+| Tool | Required version | Check |
+|:---|:---|:---|
+| Docker Desktop | WSL2 integration enabled | `docker version` |
+| kind | ≥ 0.24 | `kind version` |
+| kubectl | ≥ 1.31 | `kubectl version --client` |
+| helm | ≥ 3.15 | `helm version --short` |
+| Go | ≥ 1.26.0 | `go version` |
+| Python 3 | ≥ 3.10 | `python3 --version` |
 
-- Estimated idle power (`energy.project/p-idle`)
-- Estimated peak power (`energy.project/p-max`)
-- Current CPU/memory utilization from Prometheus
-- Scheduling latency
+Install Python dependencies:
 
-> **This scoring algorithm is NOT implemented in Week 1.** Week 1 establishes
-> the infrastructure foundation only.
-
----
-
-## Repository Structure
-
-```text
-energy-project/
-├── cluster/
-│   └── kind-config.yaml        KIND cluster definition (1 cp + 3 workers)
-│
-├── monitoring/
-│   └── values.yaml             Helm values for kube-prometheus-stack
-│
-├── scheduler/
-│   └── scheduler-plugins/      kubernetes-sigs/scheduler-plugins (cloned)
-│
-├── workloads/                  (future) Kubernetes workload manifests for experiments
-│
-├── scripts/
-│   ├── setup-cluster.sh        Create the KIND cluster
-│   ├── teardown.sh             Delete the KIND cluster
-│   ├── label-nodes.sh          Apply simulated power-profile labels to workers
-│   ├── install-monitoring.sh   Install kube-prometheus-stack via Helm
-│   └── port-forward.sh         Forward Grafana + Prometheus to localhost
-│
-├── docs/
-│   ├── scheduler-build.md      How to build scheduler-plugins (verified)
-│   └── week1-checklist.md      Step-by-step Week 1 verification checklist
-│
-└── README.md                   This file
+```bash
+pip install -r scripts/requirements.txt
 ```
 
 ---
 
 ## Quick Start
 
-All commands must be run **inside WSL2 Ubuntu** from the project root.
-
-### Prerequisites
-
-Verify these are installed before starting:
+### Option A — Full automated run
 
 ```bash
-docker version       # Docker Desktop WSL2 integration
-go version           # must be >= 1.26.0
-kubectl version --client
-kind version
-helm version
-git --version
+# Clone and enter the repo
+git clone <repo-url>
+cd schedular
+
+# Run everything: cluster → monitoring → build → deploy → experiments → analysis
+bash scripts/run-all.sh
 ```
 
-### Step 1 — Create the cluster
+Expected total time: 60–90 minutes (first run, includes image downloads).
+
+### Option B — Step by step
+
+#### Step 1 — Create the Kind cluster
 
 ```bash
 bash scripts/setup-cluster.sh
 ```
 
-**Expected:** 4 nodes (1 control-plane + 3 workers) all in `Ready` status.
+Verify: `kubectl get nodes --context kind-energy`  
+Expected: 4 nodes (1 control-plane + 3 workers), all `Ready`.
 
-**Verify:**
-
-```bash
-kubectl get nodes --context kind-energy
-```
-
----
-
-### Step 2 — Label worker nodes
+#### Step 2 — Label worker nodes
 
 ```bash
 bash scripts/label-nodes.sh
 ```
 
-**Expected:** Three workers are labeled with simulated power profiles.
-
-**Verify:**
-
+Verify:
 ```bash
 kubectl get nodes --context kind-energy \
   -L energy.project/power-profile,energy.project/p-idle,energy.project/p-max
 ```
 
----
-
-### Step 3 — Install monitoring
+#### Step 3 — Install monitoring
 
 ```bash
 bash scripts/install-monitoring.sh
 ```
 
-**Expected:** `kube-prometheus-stack` release deployed and all pods Running.
+Verify: `kubectl get pods -n monitoring --context kind-energy`  
+Expected: All pods `Running`.
 
-**Verify:**
+#### Step 4 — Build and deploy the energy-aware scheduler
 
 ```bash
-kubectl get pods -n monitoring --context kind-energy
-kubectl get svc  -n monitoring --context kind-energy
+bash scripts/build-scheduler.sh
+bash scripts/deploy-scheduler.sh
 ```
 
----
+Verify: `kubectl get pods -n kube-system --context kind-energy -l app.kubernetes.io/name=energy-aware-scheduler`  
+Expected: Pod `Running`.
 
-### Step 4 — Start port forwarding
+#### Step 5 — View dashboards
 
 ```bash
 bash scripts/port-forward.sh
 ```
 
-Then open in your Windows browser:
+- Grafana: http://localhost:3000 → Dashboard "Energy-Aware Scheduler — Comparison"
+- Prometheus: http://localhost:9090
 
-- **Grafana:** http://localhost:3000 (username: `admin`)
-- **Prometheus:** http://localhost:9090
-
-Retrieve the Grafana password:
-
+Retrieve Grafana password:
 ```bash
 kubectl get secret kube-prometheus-stack-grafana \
   -n monitoring --context kind-energy \
-  -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+  -o jsonpath="{.data.admin-password}" | base64 --decode; echo
 ```
 
----
-
-### Step 5 — Build scheduler-plugins
+#### Step 6 — Run a single scenario (quick test)
 
 ```bash
-git clone https://github.com/kubernetes-sigs/scheduler-plugins.git \
-  scheduler/scheduler-plugins
+kubectl apply -f workloads/scenarios/scenario4-energy-aware.yaml --context kind-energy
 
-cd scheduler/scheduler-plugins
-go mod download
-make build
+kubectl wait --for=jsonpath='{.status.phase}'=Running pod \
+  -l energy.project/scenario=scenario4 -n default \
+  --context kind-energy --timeout=120s
 
-ls bin/
-# Expected: bin/kube-scheduler  bin/controller
+kubectl get pods -n default --context kind-energy -o wide
 ```
 
-See [docs/scheduler-build.md](docs/scheduler-build.md) for full details
-and troubleshooting.
+View scoring logs:
+```bash
+kubectl logs -n kube-system \
+  -l app.kubernetes.io/name=energy-aware-scheduler \
+  --context kind-energy --tail=30 | grep "EnergyAware scored"
+```
 
----
+#### Step 7 — Run the full experiment campaign
 
-### Step 6 — Tear down (when done)
+```bash
+# Weight tuning (produces results/week6/tuning.csv)
+python3 scripts/tune_weights.py
+
+# Apply tuned weights
+kubectl apply -f scheduler/manifests/configmap.yaml --context kind-energy
+kubectl rollout restart deployment/energy-aware-scheduler -n kube-system --context kind-energy
+
+# 40 experimental runs: 4 scenarios × 2 schedulers × 5 runs
+bash scripts/run-experiments.sh
+
+# Analysis and charts
+python3 scripts/analyze_results.py
+
+# Percent-change deltas
+python3 scripts/compute_deltas.py
+```
+
+#### Step 8 — Tear down
 
 ```bash
 bash scripts/teardown.sh
@@ -264,12 +196,103 @@ bash scripts/teardown.sh
 
 ---
 
+## Results Location
+
+| File | Contents |
+|:---|:---|
+| `results/week6/summary.csv` | Mean ± std for power, latency, delay, spread (5 runs) |
+| `results/week6/tuning.csv` | Weight grid search results |
+| `results/week6/charts/` | PNG charts (power, latency, utilisation, sensitivity) |
+| `results/week7/deltas.csv` | Percent changes (energy-aware vs default) |
+
+---
+
+## Repository Structure
+
+```text
+schedular/
+├── cluster/
+│   └── kind-config.yaml              KIND cluster definition (1 cp + 3 workers)
+├── docs/
+│   ├── power-model.md                Node power model and label values
+│   ├── scoring-model.md              Scoring formula and weight tuning history
+│   ├── environment.md                Pinned tool and package versions
+│   ├── contribution.md               Attribution: original vs upstream code
+│   ├── final-analysis.md             Per-scenario analysis (post-run)
+│   ├── paper-implementation-section.md
+│   ├── paper-results-section.md
+│   ├── paper-edits.md
+│   ├── paper-figures.md
+│   ├── demo-script.md
+│   ├── demo-fallback.md
+│   ├── viva-questions.md
+│   ├── peaks-setup.md
+│   ├── trimaran-attempt.md
+│   └── week*-checklist.md
+├── monitoring/
+│   ├── values.yaml                   kube-prometheus-stack Helm values
+│   └── dashboards/
+│       └── scheduler-comparison.json Grafana dashboard
+├── results/
+│   ├── week5/                        Week 5 raw results (3 runs)
+│   ├── week6/                        Week 6 main results (5 runs + tuning)
+│   │   ├── summary.csv
+│   │   ├── tuning.csv
+│   │   └── charts/
+│   └── week7/
+│       ├── deltas.csv
+│       └── demo-backup/
+├── scheduler/
+│   ├── manifests/                    K8s manifests for energy-aware-scheduler
+│   │   ├── configmap.yaml            KubeSchedulerConfiguration (tunable weights)
+│   │   ├── deployment.yaml
+│   │   ├── rbac.yaml
+│   │   └── serviceaccount.yaml
+│   └── scheduler-plugins/            Forked kubernetes-sigs/scheduler-plugins
+│       └── pkg/energyaware/          ← Original plugin code (this project)
+├── scripts/
+│   ├── run-all.sh                    Full pipeline (setup → analysis)
+│   ├── run-experiments.sh            40-run experiment runner
+│   ├── analyze_results.py            CSV aggregation + chart generation
+│   ├── tune_weights.py               Weight grid search
+│   ├── compute_deltas.py             Percent-change deltas
+│   ├── demo.sh                       Interactive demo runner
+│   ├── setup-cluster.sh
+│   ├── teardown.sh
+│   ├── label-nodes.sh
+│   ├── install-monitoring.sh
+│   ├── build-scheduler.sh
+│   ├── deploy-scheduler.sh
+│   ├── port-forward.sh
+│   └── requirements.txt              Python dependencies
+└── workloads/
+    ├── load-generator.yaml           fortio load-test Job
+    ├── nginx-*.yaml / batch-*.yaml   Individual workload manifests
+    └── scenarios/                    Scenario 1-4 manifests (default + EA)
+```
+
+---
+
+## Attribution and License
+
+- `scheduler/scheduler-plugins/` is forked from
+  [kubernetes-sigs/scheduler-plugins](https://github.com/kubernetes-sigs/scheduler-plugins),
+  licensed under the **Apache License 2.0**. The original LICENSE is preserved.
+- `pkg/energyaware/`, all manifests, all scripts, and all results are original
+  to this project.
+- PEAKS ([sustainable-computing-io/peaks](https://github.com/sustainable-computing-io/peaks))
+  was studied as a reference implementation; no PEAKS code is in this repository.
+- See [docs/contribution.md](docs/contribution.md) for a full file-level attribution list.
+
+---
+
 ## Important Notes
 
-- **KIND ≠ bare metal.** All power values are simulated labels. Do not
-  claim the experiment measures real server energy consumption.
-- **Do not modify `go.mod`** in the scheduler-plugins repository to match
-  an older Go version. Install the required Go version instead.
-- **Helm chart version is pinned** to `91.5.2` (kube-prometheus-stack)
-  for reproducibility. If you need to upgrade, update `monitoring/values.yaml`
-  and `scripts/install-monitoring.sh` together.
+- **No real power measurements.** All power values are estimates from a
+  simulated linear model. Do not claim real energy savings.
+- **KIND ≠ bare metal.** Utilisation measurements reflect container-level
+  cgroup accounting on a shared host.
+- **Grafana admin password** is auto-generated by Helm and stored in a
+  Kubernetes Secret. It is never committed to this repository.
+- **Weights are tunable** via `scheduler/manifests/configmap.yaml` without
+  rebuilding the image.

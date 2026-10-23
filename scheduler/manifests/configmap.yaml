@@ -6,6 +6,8 @@
 #
 # Week 4: EnergyAware now accepts plugin args via pluginConfig.
 # Weights are configurable without rebuilding the image.
+# Week 6: Weights updated to tuned values from scripts/tune_weights.py grid
+#         search.  Old values documented in docs/scoring-model.md.
 #
 # Scoring formula (Section 5.6 of the project paper):
 #   Score_i = wR*R_i + wL*L_i - wP*P_i
@@ -58,13 +60,15 @@ data:
 
               # Weight profile for latency-sensitive pods
               # (annotation: energy.project/workload-type=latency-sensitive)
+              # Week 6 tuned values (old: wR=0.3 wL=0.6 wP=0.1)
               latencySensitiveWeights:
-                wR: 0.3   # resource headroom
+                wR: 0.2   # resource headroom
                 wL: 0.6   # latency / idleness  ← dominant
-                wP: 0.1   # power delta
+                wP: 0.2   # power delta (raised to give stronger energy signal)
 
               # Weight profile for batch pods (default when annotation absent)
+              # Week 6 tuned values (old: wR=0.3 wL=0.1 wP=0.6)
               batchWeights:
-                wR: 0.3   # resource headroom
-                wL: 0.1   # latency / idleness
+                wR: 0.2   # resource headroom
+                wL: 0.2   # latency / idleness
                 wP: 0.6   # power delta            ← dominant
