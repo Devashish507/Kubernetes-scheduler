@@ -1,8 +1,10 @@
 {
   "__inputs": [],
   "__requires": [],
-  "annotations": { "list": [] },
-  "description": "Energy-Aware Scheduler — comparison dashboard for B.Tech final-year project (Week 6 update)",
+  "annotations": {
+    "list": []
+  },
+  "description": "Energy-Aware Scheduler \u2014 Live Comparison Dashboard (B.Tech Final-Year Project)",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
@@ -11,219 +13,651 @@
   "panels": [
     {
       "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
       "id": 1,
-      "title": "Node CPU Utilization",
+      "title": "\u26a1 Live Power Consumption (Simulated Linear Model: P(u) = P_idle + u\u00b7(P_max - P_idle))",
       "type": "row"
     },
     {
-      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Total estimated power across all worker nodes in Watts.",
       "fieldConfig": {
         "defaults": {
-          "color": { "mode": "palette-classic" },
-          "custom": { "lineWidth": 2, "fillOpacity": 10 },
-          "unit": "percent",
-          "min": 0,
-          "max": 100,
+          "color": {
+            "mode": "thresholds"
+          },
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green", "value": null },
-              { "color": "yellow", "value": 60 },
-              { "color": "red", "value": 80 }
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 160
+              },
+              {
+                "color": "red",
+                "value": 200
+              }
             ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "vector(\n  scalar(20 + 40 * (((100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left(nodename) (node_uname_info{nodename=\"energy-worker\"})) / 100))\n+ scalar(40 + 80 * (((100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left(nodename) (node_uname_info{nodename=\"energy-worker2\"})) / 100))\n+ scalar(80 + 120 * (((100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left(nodename) (node_uname_info{nodename=\"energy-worker3\"})) / 100))\n)",
+          "legendFormat": "Total Cluster Power",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Cluster Estimated Power (W)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Per-node real-time power gauges showing heterogeneous server tiers.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 200,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 110
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 16,
+        "x": 8,
+        "y": 1
+      },
+      "id": 3,
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "value_and_name"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "20 + 40 * (((100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left(nodename) (node_uname_info{nodename=\"energy-worker\"})) / 100)",
+          "legendFormat": "energy-worker (Efficient: 20\u201360W)",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "40 + 80 * (((100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left(nodename) (node_uname_info{nodename=\"energy-worker2\"})) / 100)",
+          "legendFormat": "energy-worker2 (Medium: 40\u2013120W)",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "80 + 120 * (((100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left(nodename) (node_uname_info{nodename=\"energy-worker3\"})) / 100)",
+          "legendFormat": "energy-worker3 (Power-Hungry: 80\u2013200W)",
+          "refId": "C"
+        }
+      ],
+      "title": "Per-Node Estimated Power Gauges (W)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Historical power consumption over time per node.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "fillOpacity": 12,
+            "lineWidth": 2
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "20 + 40 * (((100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left(nodename) (node_uname_info{nodename=\"energy-worker\"})) / 100)",
+          "legendFormat": "energy-worker (Efficient: 20\u201360W)",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "40 + 80 * (((100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left(nodename) (node_uname_info{nodename=\"energy-worker2\"})) / 100)",
+          "legendFormat": "energy-worker2 (Medium: 40\u2013120W)",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "80 + 120 * (((100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left(nodename) (node_uname_info{nodename=\"energy-worker3\"})) / 100)",
+          "legendFormat": "energy-worker3 (Power-Hungry: 80\u2013200W)",
+          "refId": "C"
+        }
+      ],
+      "title": "Estimated Node Power Over Time (W)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "id": 10,
+      "title": "\u2696\ufe0f SIDE-BY-SIDE COMPARISON: Default Scheduler (Left) vs. Energy-Aware Scheduler (Right)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Default scheduler blindly schedules pods onto worker3 (200W).",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 14
+      },
+      "id": 11,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "count(kube_pod_info{namespace=\"default\", pod=~\"demo-default.*\", node=\"energy-worker3\"}) or vector(0)",
+          "legendFormat": "Worker3 Pods",
+          "refId": "A"
+        }
+      ],
+      "title": "Default: Pods on Power-Hungry Node (worker3)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Total pods scheduled by Default.",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 14
+      },
+      "id": 12,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "count(kube_pod_info{namespace=\"default\", pod=~\"demo-default.*\"}) or vector(0)",
+          "legendFormat": "Default Pods",
+          "refId": "A"
+        }
+      ],
+      "title": "Default: Total Pods Running",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Energy-Aware scheduler prevents placing pods on worker3 (200W).",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 14
+      },
+      "id": 13,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "count(kube_pod_info{namespace=\"default\", pod=~\"demo-energy-aware.*\", node=\"energy-worker3\"}) or vector(0)",
+          "legendFormat": "Worker3 Pods",
+          "refId": "A"
+        }
+      ],
+      "title": "Energy-Aware: Pods on Power-Hungry Node (worker3)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Total pods scheduled by Energy-Aware.",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 14
+      },
+      "id": 14,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "count(kube_pod_info{namespace=\"default\", pod=~\"demo-energy-aware.*\"}) or vector(0)",
+          "legendFormat": "Energy-Aware Pods",
+          "refId": "A"
+        }
+      ],
+      "title": "Energy-Aware: Total Pods Running",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Default Scheduler spreads pods blindly across all nodes.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
           }
         },
         "overrides": []
       },
-      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 1 },
-      "id": 2,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "id": 15,
       "options": {
-        "legend": { "calcs": ["mean", "max", "last"], "displayMode": "table", "placement": "right" },
-        "tooltip": { "mode": "multi" }
+        "pieType": "donut",
+        "legend": {
+          "displayMode": "table",
+          "placement": "right"
+        }
       },
       "targets": [
         {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "100 - (avg by (node) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "count by (node) (kube_pod_info{namespace=\"default\", pod=~\"demo-default.*\"})",
           "legendFormat": "{{ node }}",
           "refId": "A"
         }
       ],
-      "title": "Per-Node CPU Utilization (%)",
-      "type": "timeseries"
+      "title": "Default Scheduler: Pod Placement by Node (Spreads evenly)",
+      "type": "piechart"
     },
     {
-      "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 9 },
-      "id": 3,
-      "title": "Estimated Node Power (Simulated Linear Model)",
-      "type": "row"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-      "description": "Estimated power per node using P(u) = P_idle + (P_max - P_idle) * u.\nP_idle and P_max are SIMULATED labels (energy.project/p-idle, energy.project/p-max).\nValues: efficient=20W/60W, medium=40W/120W, power-hungry=80W/200W.\nNote: PromQL encodes the label values directly because kube_node_labels or\nkube_node_info do not expose custom labels in the default kube-state-metrics config.\nPower is also computed offline in analyze_results.py for the paper results.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Energy-Aware Scheduler packs pods on efficient nodes, avoiding worker3.",
       "fieldConfig": {
         "defaults": {
-          "color": { "mode": "palette-classic" },
-          "custom": { "lineWidth": 2, "fillOpacity": 10 },
-          "unit": "watt",
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 18
+      },
+      "id": 16,
+      "options": {
+        "pieType": "donut",
+        "legend": {
+          "displayMode": "table",
+          "placement": "right"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "count by (node) (kube_pod_info{namespace=\"default\", pod=~\"demo-energy-aware.*\"})",
+          "legendFormat": "{{ node }}",
+          "refId": "A"
+        }
+      ],
+      "title": "Energy-Aware Scheduler: Pod Placement by Node (Packs efficiently)",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "CPU consumed by Default Scheduler pods per node.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "lineWidth": 2,
+            "fillOpacity": 15
+          },
+          "unit": "percent",
           "min": 0
         },
         "overrides": []
       },
-      "gridPos": { "h": 8, "w": 16, "x": 0, "y": 10 },
-      "id": 4,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 26
+      },
+      "id": 17,
       "options": {
-        "legend": { "calcs": ["mean", "max", "last"], "displayMode": "table", "placement": "right" }
+        "legend": {
+          "displayMode": "table",
+          "placement": "right"
+        }
       },
       "targets": [
         {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "(\n  # energy-worker: P_idle=20, P_max=60\n  20 + (60 - 20) * (\n    (100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker\"}[2m])) * 100)) / 100\n  )\n) or vector(0)",
-          "legendFormat": "energy-worker (efficient, 20–60W)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "sum by (node) (rate(container_cpu_usage_seconds_total{namespace=\"default\", pod=~\"demo-default.*\", container!~\"POD|\"}[1m])) * 100",
+          "legendFormat": "{{ node }} (Default CPU %)",
           "refId": "A"
-        },
-        {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "(\n  # energy-worker2: P_idle=40, P_max=120\n  40 + (120 - 40) * (\n    (100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker2\"}[2m])) * 100)) / 100\n  )\n) or vector(0)",
-          "legendFormat": "energy-worker2 (medium, 40–120W)",
-          "refId": "B"
-        },
-        {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "(\n  # energy-worker3: P_idle=80, P_max=200\n  80 + (200 - 80) * (\n    (100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker3\"}[2m])) * 100)) / 100\n  )\n) or vector(0)",
-          "legendFormat": "energy-worker3 (power-hungry, 80–200W)",
-          "refId": "C"
         }
       ],
-      "title": "Estimated Node Power (W) — Simulated",
+      "title": "Default Workload: CPU Impact per Node",
       "type": "timeseries"
     },
     {
-      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-      "description": "Sum of estimated power across all three worker nodes.\nFormula: sum over nodes of [P_idle + (P_max - P_idle) * cpu_util/100].",
-      "fieldConfig": {
-        "defaults": { "unit": "watt", "color": { "mode": "thresholds" },
-          "thresholds": { "mode": "absolute", "steps": [
-            { "color": "green", "value": null },
-            { "color": "yellow", "value": 200 },
-            { "color": "red", "value": 300 }
-          ]}
-        },
-        "overrides": []
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
-      "gridPos": { "h": 4, "w": 8, "x": 16, "y": 10 },
-      "id": 5,
-      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "orientation": "horizontal", "textMode": "auto" },
-      "targets": [
-        {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "(\n  20 + 40 * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker\"}[2m])) * 100)) / 100)\n) + (\n  40 + 80 * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker2\"}[2m])) * 100)) / 100)\n) + (\n  80 + 120 * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker3\"}[2m])) * 100)) / 100)\n)",
-          "legendFormat": "Total cluster power",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Estimated Cluster Power (W)",
-      "type": "stat"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-      "description": "Current estimated power for each worker node as a gauge panel.\nSame formula as the timeseries above: P(u) = P_idle + (P_max - P_idle) * u.\nGood screenshot candidate for the paper (shows heterogeneous power at a glance).",
+      "description": "CPU consumed by Energy-Aware Scheduler pods per node.",
       "fieldConfig": {
         "defaults": {
-          "unit": "watt",
-          "min": 0,
-          "max": 250,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              { "color": "green",  "value": null },
-              { "color": "yellow", "value": 100 },
-              { "color": "red",    "value": 160 }
-            ]
+          "color": {
+            "mode": "palette-classic"
           },
-          "mappings": [],
-          "color": { "mode": "thresholds" }
+          "custom": {
+            "lineWidth": 2,
+            "fillOpacity": 15
+          },
+          "unit": "percent",
+          "min": 0
         },
         "overrides": []
       },
-      "gridPos": { "h": 4, "w": 8, "x": 16, "y": 14 },
-      "id": 12,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 26
+      },
+      "id": 18,
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"] },
-        "orientation": "auto",
-        "textMode": "value_and_name",
-        "graphMode": "none"
+        "legend": {
+          "displayMode": "table",
+          "placement": "right"
+        }
       },
       "targets": [
         {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "20 + (60 - 20) * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker\"}[2m])) * 100)) / 100)",
-          "legendFormat": "energy-worker (efficient)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "sum by (node) (rate(container_cpu_usage_seconds_total{namespace=\"default\", pod=~\"demo-energy-aware.*\", container!~\"POD|\"}[1m])) * 100",
+          "legendFormat": "{{ node }} (Energy-Aware CPU %)",
           "refId": "A"
-        },
-        {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "40 + (120 - 40) * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker2\"}[2m])) * 100)) / 100)",
-          "legendFormat": "energy-worker2 (medium)",
-          "refId": "B"
-        },
-        {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "80 + (200 - 80) * ((100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\", node=\"energy-worker3\"}[2m])) * 100)) / 100)",
-          "legendFormat": "energy-worker3 (power-hungry)",
-          "refId": "C"
         }
       ],
-      "title": "Per-Node Estimated Power — Current (W)",
-      "type": "stat"
+      "title": "Energy-Aware Workload: CPU Impact per Node",
+      "type": "timeseries"
     },
     {
-      "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 18 },
-      "id": 6,
-      "title": "Pod Placement by Node",
-      "type": "row"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-      "description": "Number of running pods per node (all namespaces, excluding system).\nThe energy-aware scheduler consolidates onto energy-worker;\nthe default scheduler spreads evenly.",
-      "fieldConfig": {
-        "defaults": { "color": { "mode": "palette-classic" } },
-        "overrides": []
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
-      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 19 },
-      "id": 7,
-      "options": { "pieType": "donut", "legend": { "displayMode": "table", "placement": "right" } },
-      "targets": [
-        {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "count by (node) (kube_pod_info{namespace!~\"kube-system|monitoring\"})",
-          "legendFormat": "{{ node }}",
-          "refId": "A"
-        }
-      ],
-      "title": "Pods per Node (non-system namespaces)",
-      "type": "piechart"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-      "description": "Table of pods in the default namespace with their assigned nodes.\nUse this to compare placement between schedulers.",
       "fieldConfig": {
         "defaults": {},
-        "overrides": [
-          { "matcher": { "id": "byName", "options": "pod" },  "properties": [{ "id": "custom.width", "value": 260 }] },
-          { "matcher": { "id": "byName", "options": "node" }, "properties": [{ "id": "custom.width", "value": 160 }] }
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 33
+      },
+      "id": 19,
+      "options": {
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "node"
+          }
         ]
       },
-      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 19 },
-      "id": 8,
-      "options": { "sortBy": [{ "desc": false, "displayName": "pod" }] },
       "targets": [
         {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "kube_pod_info{namespace=\"default\"}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "kube_pod_info{namespace=\"default\", pod=~\"demo-default.*\"}",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -231,88 +665,164 @@
         }
       ],
       "transformations": [
-        { "id": "filterFieldsByName", "options": { "include": { "names": ["pod", "node", "namespace", "created_by_name"] } } }
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "pod",
+                "node"
+              ]
+            }
+          }
+        }
       ],
-      "title": "Pod → Node Placement (default namespace)",
+      "title": "Default Scheduler: Active Pods & Assigned Node",
       "type": "table"
     },
     {
-      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-      "description": "Number of pods per node broken down by scheduler name.\nDetects which scheduler is responsible for each node's pod count.\nMetric: kube_pod_info joined with kube_pod_labels to get the\nenergy.project/scheduler label value.\nNote: requires kube-state-metrics to expose the custom pod label.\nIf the label is not visible, filter by pod-name prefix instead.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
       "fieldConfig": {
-        "defaults": {
-          "color": { "mode": "palette-classic" },
-          "custom": { "lineWidth": 2 },
-          "unit": "short"
-        },
+        "defaults": {},
         "overrides": []
       },
-      "gridPos": { "h": 7, "w": 24, "x": 0, "y": 27 },
-      "id": 13,
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 33
+      },
+      "id": 20,
       "options": {
-        "legend": { "calcs": ["last"], "displayMode": "table", "placement": "right" },
-        "tooltip": { "mode": "multi" }
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "node"
+          }
+        ]
       },
       "targets": [
         {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "count by (node, scheduler) (\n  kube_pod_info{namespace=\"default\"}\n  * on(pod, namespace) group_left(label_energy_project_scheduler)\n  kube_pod_labels{namespace=\"default\"}\n)",
-          "legendFormat": "{{ node }} / {{ label_energy_project_scheduler }}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "kube_pod_info{namespace=\"default\", pod=~\"demo-energy-aware.*\"}",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "",
           "refId": "A"
         }
       ],
-      "title": "Pods per Node by Scheduler (default namespace)",
-      "type": "timeseries"
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "pod",
+                "node"
+              ]
+            }
+          }
+        }
+      ],
+      "title": "Energy-Aware Scheduler: Active Pods & Assigned Node",
+      "type": "table"
     },
     {
       "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 34 },
-      "id": 9,
-      "title": "Node Resource Utilization",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 39
+      },
+      "id": 30,
+      "title": "\ud83d\udda5\ufe0f Node System Utilization (node-exporter metrics)",
       "type": "row"
     },
     {
-      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
       "fieldConfig": {
-        "defaults": { "unit": "percentunit", "min": 0, "max": 1, "color": { "mode": "palette-classic" } },
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "fillOpacity": 10,
+            "lineWidth": 2
+          },
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
         "overrides": []
       },
-      "gridPos": { "h": 7, "w": 12, "x": 0, "y": 35 },
-      "id": 10,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 40
+      },
+      "id": 31,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        }
+      },
       "targets": [
         {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "sum by (node) (kube_pod_container_resource_requests{resource=\"cpu\", unit=\"core\", namespace!~\"kube-system|monitoring\"}) / sum by (node) (kube_node_status_allocatable{resource=\"cpu\", unit=\"core\"})",
-          "legendFormat": "{{ node }}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "(100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left(nodename) node_uname_info",
+          "legendFormat": "{{ nodename }}",
           "refId": "A"
         }
       ],
-      "title": "CPU Requested / Allocatable per Node",
-      "type": "timeseries"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-      "fieldConfig": {
-        "defaults": { "unit": "percentunit", "min": 0, "max": 1, "color": { "mode": "palette-classic" } },
-        "overrides": []
-      },
-      "gridPos": { "h": 7, "w": 12, "x": 12, "y": 35 },
-      "id": 11,
-      "targets": [
-        {
-          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
-          "expr": "sum by (node) (kube_pod_container_resource_requests{resource=\"memory\", unit=\"byte\", namespace!~\"kube-system|monitoring\"}) / sum by (node) (kube_node_status_allocatable{resource=\"memory\", unit=\"byte\"})",
-          "legendFormat": "{{ node }}",
-          "refId": "A"
-        }
-      ],
-      "title": "Memory Requested / Allocatable per Node",
+      "title": "Per-Node Total CPU Utilization (%) \u2014 Real Node Names",
       "type": "timeseries"
     }
   ],
-  "refresh": "10s",
+  "refresh": "5s",
   "schemaVersion": 38,
-  "tags": ["energy", "scheduler", "kubernetes"],
+  "tags": [
+    "energy",
+    "scheduler",
+    "kubernetes",
+    "comparison"
+  ],
   "templating": {
     "list": [
       {
@@ -328,10 +838,13 @@
       }
     ]
   },
-  "time": { "from": "now-30m", "to": "now" },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Energy-Aware Scheduler — Comparison",
+  "title": "Energy-Aware Scheduler \u2014 Comparison",
   "uid": "energy-scheduler-comparison",
-  "version": 2
+  "version": 10
 }

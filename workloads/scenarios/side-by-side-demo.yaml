@@ -1,0 +1,175 @@
+---
+# =============================================================================
+# workloads/scenarios/side-by-side-demo.yaml
+# Concurrent Live Stress Demonstration Workload
+# Deploys Default and Energy-Aware workloads side-by-side with CPU stress
+# =============================================================================
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. DEFAULT SCHEDULER WORKLOAD (2 Web Nginx + 2 High-CPU Stress Pods)
+# ─────────────────────────────────────────────────────────────────────────────
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-default-latency
+  namespace: default
+  labels:
+    app: demo-default-latency
+    energy.project/scenario: side-by-side-demo
+    energy.project/scheduler: default-scheduler
+    energy.project/workload-type: latency-sensitive
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-default-latency
+  template:
+    metadata:
+      labels:
+        app: demo-default-latency
+        energy.project/scenario: side-by-side-demo
+        energy.project/scheduler: default-scheduler
+        energy.project/workload-type: latency-sensitive
+      annotations:
+        energy.project/workload-type: latency-sensitive
+    spec:
+      schedulerName: default-scheduler
+      containers:
+        - name: nginx
+          image: nginx:1.25-alpine
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-default-batch
+  namespace: default
+  labels:
+    app: demo-default-batch
+    energy.project/scenario: side-by-side-demo
+    energy.project/scheduler: default-scheduler
+    energy.project/workload-type: batch
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-default-batch
+  template:
+    metadata:
+      labels:
+        app: demo-default-batch
+        energy.project/scenario: side-by-side-demo
+        energy.project/scheduler: default-scheduler
+        energy.project/workload-type: batch
+      annotations:
+        energy.project/workload-type: batch
+    spec:
+      schedulerName: default-scheduler
+      containers:
+        - name: stress
+          image: alexeiled/stress-ng:latest
+          args:
+            - "--cpu"
+            - "1"
+            - "--cpu-load"
+            - "40"
+            - "--timeout"
+            - "1800s"
+          resources:
+            requests:
+              cpu: 250m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
+
+---
+# ─────────────────────────────────────────────────────────────────────────────
+# 2. ENERGY-AWARE SCHEDULER WORKLOAD (2 Web Nginx + 2 High-CPU Stress Pods)
+# ─────────────────────────────────────────────────────────────────────────────
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-energy-aware-latency
+  namespace: default
+  labels:
+    app: demo-energy-aware-latency
+    energy.project/scenario: side-by-side-demo
+    energy.project/scheduler: energy-aware-scheduler
+    energy.project/workload-type: latency-sensitive
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-energy-aware-latency
+  template:
+    metadata:
+      labels:
+        app: demo-energy-aware-latency
+        energy.project/scenario: side-by-side-demo
+        energy.project/scheduler: energy-aware-scheduler
+        energy.project/workload-type: latency-sensitive
+      annotations:
+        energy.project/workload-type: latency-sensitive
+    spec:
+      schedulerName: energy-aware-scheduler
+      containers:
+        - name: nginx
+          image: nginx:1.25-alpine
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-energy-aware-batch
+  namespace: default
+  labels:
+    app: demo-energy-aware-batch
+    energy.project/scenario: side-by-side-demo
+    energy.project/scheduler: energy-aware-scheduler
+    energy.project/workload-type: batch
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-energy-aware-batch
+  template:
+    metadata:
+      labels:
+        app: demo-energy-aware-batch
+        energy.project/scenario: side-by-side-demo
+        energy.project/scheduler: energy-aware-scheduler
+        energy.project/workload-type: batch
+      annotations:
+        energy.project/workload-type: batch
+    spec:
+      schedulerName: energy-aware-scheduler
+      containers:
+        - name: stress
+          image: alexeiled/stress-ng:latest
+          args:
+            - "--cpu"
+            - "1"
+            - "--cpu-load"
+            - "40"
+            - "--timeout"
+            - "1800s"
+          resources:
+            requests:
+              cpu: 250m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
